@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require_tree .
 //= require d3
+
+$(document).ready(function(){
+  console.log('ready');
+
+  console.log(d3);
+});
