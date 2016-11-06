@@ -1,2 +1,0 @@
-class LyricController < ApplicationController
-end
