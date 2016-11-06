@@ -16,7 +16,52 @@
 //= require d3
 
 $(document).ready(function(){
-  console.log('ready');
+  // load buttons for testing
+  addWatsonTestButtonForPassage();
+  addWatsonTestButtonForLyrics();
 
-  console.log(d3);
+  // event listeners for buttons
+  testPassageButton();
+  testLyricsButton();
 });
+
+// load example data to test with
+// simulation of Watson data output for passages
+var passagesData = { "document_tone": {
+  "tone_categories": [
+    {
+      "tones": [
+        {
+          "score": 0.860773,
+          "tone_id": "anger",
+          "tone_name": "Anger"
+        },
+        {
+          "score": 0.030624,
+          "tone_id": "disgust",
+          "tone_name": "Disgust"
+        },
+        {
+          "score": 0.023961,
+          "tone_id": "fear",
+          "tone_name": "Fear"
+        },
+        {
+          "score": 0.000702,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        },
+        {
+          "score": 0.130101,
+          "tone_id": "sadness",
+          "tone_name": "Sadness"
+        }
+      ],
+      "category_id": "emotion_tone",
+      "category_name": "Emotion Tone"
+    }
+  ]
+}
+}
+
+// simulation of Lyrics data from Watson
