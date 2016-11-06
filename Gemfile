@@ -23,6 +23,16 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'json'
+gem 'watson-tone-analyzer', '~> 0.0.0'
+gem 'http'
+gem 'rest-client'
+
+gem 'rspotify'
+gem 'dotenv-rails'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'd3js-rails', '~> 3.1', '>= 3.1.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
