@@ -1,8 +1,6 @@
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
 - cp config/database.yml.travis config/database.yml
-script:
-  -"travis_retry bin/rake default --trace"
 language: ruby
 cache: bundler
 sudo: false
