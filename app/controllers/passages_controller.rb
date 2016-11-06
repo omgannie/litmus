@@ -1,5 +1,6 @@
 class PassagesController < ApplicationController
   def index
+    @genre_options =  Genre.all.map{ |genre| [genre.name, genre.id] }
   end
 
   def new
@@ -8,6 +9,7 @@ class PassagesController < ApplicationController
 
   def create
     @passage = Passage.new(passage_params)
+    p passage_params
 
     if @passage.save
       # Run through Watson analyzer

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :passages
+  resources :passages, only: [:index, :create, :new]
+  resources :songs, only: [:index]
+
+  get '/songs/search_song'
   root to: "passages#index"
 end
