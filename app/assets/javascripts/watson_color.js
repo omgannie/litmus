@@ -153,6 +153,7 @@ function formatHSB(emotionObject) {
   return "hsl(" + colorHash['hue'] + ", " + colorHash['saturation'] + ", " + colorHash['lightness'] + ")";
 };
 
+// color object literal;
 var color = {
   hue: "",
   saturation: "",
@@ -201,9 +202,9 @@ function adjustIntensity(emotionObject) {
 
   if (emotionObject.score >= 0.75) {
     color['lightness'] = '100%';
-  } else if (emotionObject.score < 0.75 && emotionObject.score > 0.5) {
+  } else if (emotionObject.score < 0.75 && emotionObject.score > 0.65) {
     color['lightness'] = '70%';
-  } else if (emotionObject.score <= 0.5) {
+  } else if (emotionObject.score <= 0.65 && emotionObject.score > 0.55) {
     color['lightness'] = '50%';
   };
 };
