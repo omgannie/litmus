@@ -17,20 +17,19 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'json'
-gem 'watson-tone-analyzer', '~> 0.0.0'
 gem 'http'
 gem 'rest-client'
+gem 'json'
+gem 'watson-tone-analyzer', '~> 0.0.0'
 
 gem 'rspotify'
 gem 'dotenv-rails'
-gem 'bootstrap-sass', '~> 3.3.1'
 gem 'd3js-rails', '~> 3.1', '>= 3.1.6'
 
 # Use ActiveModel has_secure_password
