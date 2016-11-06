@@ -1,0 +1,2 @@
+class CategorizationsController < ApplicationController
+end
