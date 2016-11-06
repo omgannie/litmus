@@ -1,2 +1,0 @@
-class EmotionController < ApplicationController
-end
