@@ -201,7 +201,7 @@ DEPENDENCIES
   pg (~> 0.15)
   rails (= 4.2.7.1)
   rest-client
-  rspotify
+  rspotify (~> 1.18.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

@@ -24,11 +24,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'http'
+# gem 'rest-client', '~> 1.7'
 gem 'rest-client'
 gem 'json'
 gem 'watson-tone-analyzer', '~> 0.0.0'
 
-gem 'rspotify'
+gem 'rspotify', '~> 1.18.0'
 gem 'dotenv-rails'
 gem 'd3js-rails', '~> 3.1', '>= 3.1.6'
 
