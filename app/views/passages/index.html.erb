@@ -1,0 +1,5 @@
+<h1 class="page-header">Passage to Analyze</h1>
+<%= form_for Passage.new do |f| %>
+  <%= f.text_area(:body, class: "form-control", size: "60x24") %>
+  <%= f.submit "Check the Emotional Pulse", class: "btn btn-primary" %>
+<% end %>
