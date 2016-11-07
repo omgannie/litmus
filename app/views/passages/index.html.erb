@@ -1,0 +1,22 @@
+<!-- TODO: Use ajax to hide and display div containers -->
+<!-- TODO: Add hidden value with strongest emotion from passage -->
+
+<div class="passage">
+  <h1 class="page-header">Passage to Analyze</h1>
+  <%= form_for @passage do |f| %>
+    <%= f.text_area(:body, class: "form-control", size: "60x24") %>
+    <br>
+    <%= f.submit "Check the Emotional Pulse", class: "submit-passage btn btn-primary" %>
+  <% end %>
+</div>
+<br><br>
+<div class="select-genre">
+  <h3>Chime In</h3>
+  <p>We're going to fine-tune the passage you submitted. In order to find the ideal music to your ears, please select a music genre. We don't want to strike a false note, so it's your turn to call the tune.</p>
+  <%= form_tag({ controller: "songs", action: 'search_song'}, method: "get" ) do %>
+    <%= select_tag(:genre, options_for_select(@genre_options)) %>
+    <%= submit_tag "Select", name: nil, class: 'btn' %>
+  <% end %>
+</div>
+
+
