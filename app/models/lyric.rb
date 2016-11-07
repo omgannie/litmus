@@ -3,9 +3,4 @@ class Lyric < ActiveRecord::Base
 
   belongs_to :song
   has_one :emotion, as: :emotionable
-
-  def get_lyrics
-  	MusixMatch::API::Base.api_key = ENV['MUSIX_MATCH']
-  	
-  end
 end
