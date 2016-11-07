@@ -3,7 +3,6 @@ module EmotionConcern
 
   included do
     has_one :emotion, as: :emotionable
-    # before_filter :ok
   end
 
   def analyze_passage
