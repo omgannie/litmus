@@ -14,7 +14,13 @@ class Song < ActiveRecord::Base
 
     recommendations = RSpotify::Recommendations.generate(limit: 5, seed_genres: hash[:seed_genres])
 
+    response = JSON.parse(recommendations)
 
-    JSON.parse(recommendations)
+    metadata_list = []
+			response["tracks"].each do |track|
+				metadata_list << {"artist" => track["artists"][0]["name"], "track" => track["name"]}
+		end
+
+		metadata_list
   end
 end

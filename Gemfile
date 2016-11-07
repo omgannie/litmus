@@ -28,6 +28,7 @@ gem 'http'
 gem 'rest-client'
 gem 'json'
 gem 'watson-tone-analyzer', '~> 0.0.0'
+gem 'musix_match'
 
 gem 'rspotify', '~> 1.18.0'
 gem 'dotenv-rails'
