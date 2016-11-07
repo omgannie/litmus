@@ -11,4 +11,6 @@ class Passage < ActiveRecord::Base
       redirect_to root_path
     end
   end
+
+  # TODO: Add highest_emotion method
 end

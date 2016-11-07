@@ -7,7 +7,7 @@ class PassagesController < ApplicationController
     @passage = Passage.new(passage_params)
 
     if @passage.save
-      # Run through Watson analyzer
+      # TODO: Run through Watson analyzer
     end
     redirect_to "/passages"
   end
