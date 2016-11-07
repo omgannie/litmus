@@ -18,6 +18,8 @@ class Passage < ActiveRecord::Base
     emotions
   end
 
-  # TODO: Add highest_emotion method
+  def self.primary_emotion(emotion_list)
+    emotion_list.max { |emotion_1, emotion_2| emotion_1["score"] <=> emotion_2["score"] }["name"]
+  end
 
 end

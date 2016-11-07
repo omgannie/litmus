@@ -1,4 +1,3 @@
-
 class SongsController < ApplicationController
 
 # TODO: Add logic for strongest emotion. If the strongest emotion is joy, add valence for joy
