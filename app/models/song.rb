@@ -10,7 +10,7 @@ class Song < ActiveRecord::Base
   def map_emotions(primary_emotion)
     case primary_emotion
     when "Anger"
-      { options: "min_valence: 0.3, max_valence, 0.6, min_energy: 0.7"}
+      [{min_valence: 0.3}, {max_valence: 0.6}, {min_energy: 0.7}]
     when "Disgust"
       { options: "min_valence: 0.3, max_valence: 0.7, min_energy: 0.6, max_acousticness: 0.2"}
     when "Fear"
@@ -24,7 +24,7 @@ class Song < ActiveRecord::Base
     end
   end
 
-  def get_recommendations(genre_hash, tone_hash)
+  def get_recommendations(hash)
     authenticate = RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV["SPOTIFY_CLIENT_SECRET"])
 
     RSpotify.raw_response = true
