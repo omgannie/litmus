@@ -11,6 +11,6 @@ class SongsController < ApplicationController
     recommendations.each do |song|
       Song.create(artist_name: song["artist"], song_title: song["track"])
     end
-    redirect_to "/passages"
+    redirect_to lyrics_search_lyrics_path
   end
 end
