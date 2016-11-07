@@ -11,7 +11,6 @@ class Song < ActiveRecord::Base
     authenticate = RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV["SPOTIFY_CLIENT_SECRET"])
 
     RSpotify.raw_response = true
-
     recommendations = RSpotify::Recommendations.generate(limit: 5, seed_genres: hash[:seed_genres])
     response = JSON.parse(recommendations)
     
