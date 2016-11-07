@@ -3,18 +3,13 @@ class PassagesController < ApplicationController
     @genre_options =  Genre.all.map{ |genre| [genre.name, genre.id] }
   end
 
-  def new
-    @passage = Passage.new
-  end
-
   def create
     @passage = Passage.new(passage_params)
-    p passage_params
 
     if @passage.save
-      # Run through Watson analyzer
-      redirect_to "/passages"
+      # TODO: Run through Watson analyzer
     end
+    redirect_to "/passages"
   end
 
   private
