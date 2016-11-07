@@ -737,27 +737,27 @@ var lyricsData =
       {
         "tones": [
           {
-            "score": 0.24641,
+            "score": 0.019448,
             "tone_id": "anger",
             "tone_name": "Anger"
           },
           {
-            "score": 0.002099,
+            "score": 0.002752,
             "tone_id": "disgust",
             "tone_name": "Disgust"
           },
           {
-            "score": 0.020018,
+            "score": 0.002754,
             "tone_id": "fear",
             "tone_name": "Fear"
           },
           {
-            "score": 0.004727,
+            "score": 0.972078,
             "tone_id": "joy",
             "tone_name": "Joy"
           },
           {
-            "score": 0.811754,
+            "score": 0.008124,
             "tone_id": "sadness",
             "tone_name": "Sadness"
           }
@@ -768,7 +768,7 @@ var lyricsData =
       {
         "tones": [
           {
-            "score": 0,
+            "score": 0.81724,
             "tone_id": "analytical",
             "tone_name": "Analytical"
           },
@@ -778,7 +778,7 @@ var lyricsData =
             "tone_name": "Confident"
           },
           {
-            "score": 0.000786,
+            "score": 0.382929,
             "tone_id": "tentative",
             "tone_name": "Tentative"
           }
@@ -789,27 +789,27 @@ var lyricsData =
       {
         "tones": [
           {
-            "score": 0.549935,
+            "score": 0.280548,
             "tone_id": "openness_big5",
             "tone_name": "Openness"
           },
           {
-            "score": 0,
+            "score": 0.625662,
             "tone_id": "conscientiousness_big5",
             "tone_name": "Conscientiousness"
           },
           {
-            "score": 0.00534,
+            "score": 0.844824,
             "tone_id": "extraversion_big5",
             "tone_name": "Extraversion"
           },
           {
-            "score": 0.64797,
+            "score": 0.996954,
             "tone_id": "agreeableness_big5",
             "tone_name": "Agreeableness"
           },
           {
-            "score": 0.001246,
+            "score": 0.444271,
             "tone_id": "emotional_range_big5",
             "tone_name": "Emotional Range"
           }
