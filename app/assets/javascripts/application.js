@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require d3
-
 $(document).ready(function(){
   // load buttons for testing
   addWatsonTestButtonForPassage();
