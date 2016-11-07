@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require_tree .
 //= require d3
+$(document).ready(function(){
+  // load buttons for testing
+  addWatsonTestButtonForPassage();
+  addWatsonTestButtonForLyrics();
+
+  // event listeners for buttons
+  testButton('.watson-passage-btn', passageEmotionScoresArray);
+  testButton('.watson-lyrics-btn', lyricsEmotionScoresArray);
+
+  // test gradient
+  createGradient();
+});

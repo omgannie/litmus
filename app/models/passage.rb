@@ -17,4 +17,6 @@ class Passage < ActiveRecord::Base
     emotions
   end
 
+  # TODO: Add highest_emotion method
+
 end
