@@ -12,6 +12,9 @@ class SongsController < ApplicationController
     @song = Song.new
     recommendations = @song.get_recommendations({ seed_genres: genre.categories }, attribute_map)
 
+    recommendations.each do |song|
+      Song.create(artist_name: song["artist"], song_title: song["track"])
+    end
     redirect_to "/passages"
   end
 end

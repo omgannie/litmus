@@ -18,6 +18,28 @@ class Passage < ActiveRecord::Base
     emotions
   end
 
+  def self.format_watson_data(watson)
+    watson_database = Hash.new
+
+    watson.each do |emotion|
+      emotion.each do |k, v|
+        if v == "Joy"
+          watson_database[:joy] = emotion["score"]
+        elsif v == "Anger"
+          watson_database[:anger] = emotion["score"]
+        elsif v == "Disgust"
+          watson_database[:disgust] = emotion["score"]
+        elsif v == "Sadness"
+          watson_database[:sadness] = emotion["score"]
+        elsif v == "Fear"
+          watson_database[:fear] = emotion["score"]
+        end
+      end
+    end
+
+    watson_database
+  end
+
   def self.primary_emotion(emotion_list)
     emotion_list.max { |emotion_1, emotion_2| emotion_1["score"] <=> emotion_2["score"] }["name"]
   end
