@@ -21,9 +21,7 @@ class PassagesController < ApplicationController
 
   def show
     passage_object = Passage.find(params[:id])
-    p passage_object
     watson_object = passage_object.analyze_passage
-    p watson_object
     @tone = Passage.emotion_tone(watson_object)
     @strongest_emotion = Passage.primary_emotion(@tone)
   end
