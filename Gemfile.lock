@@ -76,6 +76,8 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.1)
     http_parser.rb (0.6.0)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -96,6 +98,9 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    musix_match (0.2.0)
+      httparty (>= 0.6.1)
+      json
     netrc (0.11.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -198,6 +203,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   json
+  musix_match
   pg (~> 0.15)
   rails (= 4.2.7.1)
   rest-client
