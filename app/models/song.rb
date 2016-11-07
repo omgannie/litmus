@@ -1,5 +1,3 @@
-require 'rspotify'
-
 class Song < ActiveRecord::Base
   validates :artist_name, :song_title, presence: true
 
@@ -30,8 +28,8 @@ class Song < ActiveRecord::Base
     RSpotify.raw_response = true
     recommendations = RSpotify::Recommendations.generate(limit: 5, seed_genres: genre_hash[:seed_genres], tone_hash[:options])
     response = JSON.parse(recommendations)
-    
-    # return relevant data as 
+
+    # return relevant data as
     metadata_list = []
     response["tracks"].each do |track|
       metadata_list << {"artist" => track["artists"][0]["name"], "track" => track["name"]}

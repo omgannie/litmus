@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20161106221338) do
   end
 
   create_table "emotions", force: :cascade do |t|
-    t.string   "joy"
-    t.string   "sadness"
-    t.string   "anger"
-    t.string   "disgust"
-    t.string   "fear"
+    t.decimal  "joy"
+    t.decimal  "sadness"
+    t.decimal  "anger"
+    t.decimal  "disgust"
+    t.decimal  "fear"
     t.integer  "emotionable_id"
     t.string   "emotionable_type"
     t.datetime "created_at",       null: false
