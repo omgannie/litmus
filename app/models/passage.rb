@@ -4,13 +4,20 @@ class Passage < ActiveRecord::Base
   has_one :emotion, as: :emotionable
 
   def analyze_passage
-    if !params[:passage].empty?
-      init = ToneAnalyzer.new(ENV["WATSON_USERNAME"], ENV["WATSON_PASSWORD"])
-      @response = init.analyze(params[:passage])
-    else
-      redirect_to root_path
+    init = ToneAnalyzer.new(ENV["WATSON_USERNAME"], ENV["WATSON_PASSWORD"])
+    response = init.analyze(self.body)
+  end
+
+  def self.emotion_tone(analysis)
+    emotions = []
+    tones = analysis["document_tone"]["tone_categories"][0]["tones"]
+
+    tones.each do |tone|
+      emotions << {"name" => tone["tone_name"], "score" => tone["score"]}
     end
+    emotions
   end
 
   # TODO: Add highest_emotion method
+
 end
