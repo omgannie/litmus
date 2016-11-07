@@ -8,7 +8,7 @@ class PassagesController < ApplicationController
     @passage = Passage.new(passage_params)
 
     if @passage.save
-      tone_analysis = passage.analyze_passage
+      tone_analysis = @passage.analyze_passage
       tone_results = Passage.emotion_tone(tone_analysis)
       primary_tone = Passage.primary_emotion(tone_results)
     end
