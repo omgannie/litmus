@@ -8,9 +8,17 @@ class Song < ActiveRecord::Base
   has_many  :genres, through: :categorizations
 
   def get_recommendations(hash)
-    authenticate = RSpotify.authenticate("99b5c24585474650951d10111007defd", "1b657d2f4f8c4c6aa6590b55d1c1e798")
+    authenticate = RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV["SPOTIFY_CLIENT_SECRET"])
+
     RSpotify.raw_response = true
     recommendations = RSpotify::Recommendations.generate(limit: 5, seed_genres: hash[:seed_genres])
-    JSON.parse(recommendations)
+    response = JSON.parse(recommendations)
+    
+    # return relevant data as 
+    metadata_list = []
+		response["tracks"].each do |track|
+			metadata_list << {"artist" => track["artists"][0]["name"], "track" => track["name"]}
+		end
+		metadata_list
   end
 end
