@@ -10,6 +10,7 @@ class PassagesController < ApplicationController
       # TODO: Run through Watson analyzer
     end
     redirect_to "/passages"
+  end
 
   def show
     passage_object = Passage.find(params[:id])
