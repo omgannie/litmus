@@ -21,5 +21,5 @@ $(document).ready(function(){
 
   // event listeners for buttons
   testPassageButton();
-  // testLyricsButton();
+  testLyricsButton();
 });

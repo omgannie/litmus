@@ -2,9 +2,12 @@
 // RGB is determined by emotion- first digit of score
 // opacity is determined by second digit of score - measurement of intensity of emotion?
 
+var lyricsEmotionTones = lyricsData['document_tone']['tone_categories'][0];
+var lyricsEmotionScoresArray = lyricsEmotionTones.tones;
+
 // returns a hash saved to a variable
-var emotionTones = passageData['document_tone']['tone_categories'][0];
-var emotionScoresArray = emotionTones.tones;
+var passageEmotionTones = passageData['document_tone']['tone_categories'][0];
+var passageEmotionScoresArray = passageEmotionTones.tones;
 
 // fetches highest ranking emotion
 function fetchHighestRankingEmotion(arrayOfEmotionScores) {
@@ -31,38 +34,38 @@ var color = {
 function formatHSB(emotionObject) {
   var color = translateEmotionToHSB(emotionObject);
 
-  return "hsl(" + color['hue'] + ", " + color['saturation'] + ", " + color['lightness'] + ")";
+  return d3.hsl(color['hue'], color['saturation'], color['lightness']);
 };
 
 // return specific color based on intensity of score
 function translateEmotionToHSB(emotionObject) {
 
   if (emotionObject.tone_id === "anger") {
-    color['hue'] = '0';
+    color['hue'] = 0;
 
     adjustIntensity(emotionObject);
 
     return color;
   } else if (emotionObject.tone_id === "disgust") {
-    color['hue'] = '98';
+    color['hue'] = 98;
 
     adjustIntensity(emotionObject);
 
     return color;
   } else if (emotionObject.tone_id === "fear") {
-    color['hue'] = '327';
+    color['hue'] = 327;
 
     adjustIntensity(emotionObject);
 
     return color;
   } else if (emotionObject.tone_id === "joy") {
-    color['hue'] = '55';
+    color['hue'] = 55;
 
     adjustIntensity(emotionObject);
 
     return color;
   } else if (emotionObject.tone_id === "sadness") {
-    color['hue'] = '260';
+    color['hue'] = 230;
 
     adjustIntensity(emotionObject);
 
@@ -72,44 +75,14 @@ function translateEmotionToHSB(emotionObject) {
 
 // adjust intensity of color
 function adjustIntensity(emotionObject) {
-  color['saturation'] = '100%';
-
   if (emotionObject.score >= 0.75) {
-    color['lightness'] = '100%';
+    color['saturation'] = 0.75;
+    color['lightness'] = 0.55;
   } else if (emotionObject.score < 0.75 && emotionObject.score > 0.50) {
-    color['lightness'] = '70%';
+    color['saturation'] = 0.5;
+    color['lightness'] = 0.9;
   } else if (emotionObject.score <= 0.50) {
-    color['lightness'] = '50%';
+    color['saturation'] = 0.50;
+    color['lightness'] = 0.75;
   };
-};
-
-function addWatsonTestButtonForPassage() {
-  d3.select('body')
-    .append('button')
-    .attr('class', 'watson-passage-btn')
-    .text('Click Me to Test Watson for Passage');
-};
-
-function addWatsonTestButtonForLyrics() {
-  d3.select('body')
-    .append('button')
-    .attr('class', 'watson-lyrics-btn')
-    .text('Click Me to Test Watson for Lyrics');
-};
-
-function testPassageButton() {
-  $('.watson-passage-btn').on('click', function() {
-
-    // fetch color from emotion data
-    var strongestEmotion = fetchHighestRankingEmotion(emotionScoresArray);
-    var formattedColor = formatHSB(strongestEmotion);
-
-    // load color of emotion from passage as a new div
-    var loadColor = d3.select('body')
-      .append('div')
-      .attr('class', 'color-from-emotion')
-      .style('background-color', formattedColor)
-      .style('color', 'white')
-      .text('Hi this emotion is ' + strongestEmotion.tone_id);
-  });
 };
