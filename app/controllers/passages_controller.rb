@@ -10,7 +10,11 @@ class PassagesController < ApplicationController
     if @passage.save
       tone_analysis = @passage.analyze_passage
       tone_results = Passage.emotion_tone(tone_analysis)
-      primary_tone = Passage.primary_emotion(tone_results)
+      emotion_params = Passage.format_watson_data(tone_results)
+      new_emotion_object = Emotion.new(emotion_params)
+      new_emotion_object.emotionable_id = @passage.id
+      new_emotion_object.emotionable_type = @passage.class
+      new_emotion_object.save
     end
     redirect_to @passage
   end
@@ -19,6 +23,7 @@ class PassagesController < ApplicationController
     passage_object = Passage.find(params[:id])
     watson_object = passage_object.analyze_passage
     @tone = Passage.emotion_tone(watson_object)
+    @strongest_emotion = Passage.primary_emotion(@tone)
   end
 
   private
