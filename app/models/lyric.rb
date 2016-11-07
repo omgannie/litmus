@@ -1,8 +1,8 @@
 class Lyric < ActiveRecord::Base
+  include EmotionConcern
   validates :body, :song_id, presence: true
 
   belongs_to :song
-  has_one :emotion, as: :emotionable
 
   def get_track_id(artist_name, song_title)
   	MusixMatch::API::Base.api_key = ENV['MUSIX_MATCH']
