@@ -3,7 +3,7 @@
 
 <div class="passage">
   <h1 class="page-header">Passage to Analyze</h1>
-  <%= form_for @passage do |f| %>
+  <%= form_for @passage, remote: true do |f| %>
     <%= f.text_area(:body, class: "form-control", size: "60x24") %>
     <br>
     <%= f.submit "Check the Emotional Pulse", class: "submit-passage btn btn-primary" %>
@@ -18,5 +18,3 @@
     <%= submit_tag "Select", name: nil, class: 'btn' %>
   <% end %>
 </div>
-
-
