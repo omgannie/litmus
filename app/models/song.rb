@@ -1,4 +1,5 @@
 class Song < ActiveRecord::Base
+  scope :recent, -> { order("created_at DESC").limit(5) }
   validates :artist_name, :song_title, presence: true
 
   has_one :lyric
