@@ -9,16 +9,13 @@ class LyricsController < ApplicationController
       all_track_ids.push(result[0])
     end
 
-    p "!!!!!!!!!!!!!"
-    p all_track_ids.length
-
     lyrics = []
     all_track_ids.each do |track_id|
       result = lyric.get_lyrics(track_id)
       lyrics.push(result)
     end
 
-    p lyrics.reject! { |lyric| lyric.to_s.empty? }
+    lyrics.reject! { |lyric| lyric.to_s.empty? }
 
     redirect_to '/passages'
   end
