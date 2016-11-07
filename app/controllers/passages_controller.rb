@@ -14,7 +14,7 @@ class PassagesController < ApplicationController
   def show
     passage_object = Passage.find(params[:id])
     watson_object = passage_object.analyze_passage
-    @wat_return = Passage.pretty_watson(watson_object)
+    @tone = Passage.emotion_tone(watson_object)
   end
 
   private

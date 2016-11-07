@@ -8,9 +8,10 @@ class Passage < ActiveRecord::Base
     response = init.analyze(self.body)
   end
 
-  def self.pretty_watson(wat_obj)
+  def self.emotion_tone(analysis)
     emotions = []
-    tones = wat_obj["document_tone"]["tone_categories"][0]["tones"]
+    tones = analysis["document_tone"]["tone_categories"][0]["tones"]
+
     tones.each do |tone|
       emotions << {"name" => tone["tone_name"], "score" => tone["score"]}
     end
