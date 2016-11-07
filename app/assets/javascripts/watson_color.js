@@ -24,6 +24,7 @@ var color = {
   hue: "",
   saturation: "",
   lightness: "",
+  length: "",
 };
 
 // formats hsb for css input
