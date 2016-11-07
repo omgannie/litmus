@@ -15,4 +15,14 @@ class Lyric < ActiveRecord::Base
     end
     track_ids
   end
+
+  def get_lyrics(track_id)
+    response = MusixMatch.get_lyrics(track_id)
+    if response.status_code == 200
+      all_lyrics = []
+      lyrics = response.lyrics
+      all_lyrics.push(lyrics.lyrics_body)
+    end
+    all_lyrics
+  end
 end
