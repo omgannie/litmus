@@ -16,6 +16,7 @@ function fetchHighestRankingEmotion(arrayOfEmotionScores) {
   for (var i = 0; i < arrayOfEmotionScores.length; i++) {
     if (highestRankingEmotion.score < arrayOfEmotionScores[i].score) {
       highestRankingEmotion = arrayOfEmotionScores[i];
+      color['length'] = 0.4
     };
   };
 

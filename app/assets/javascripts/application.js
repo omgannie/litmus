@@ -20,6 +20,9 @@ $(document).ready(function(){
   addWatsonTestButtonForLyrics();
 
   // event listeners for buttons
-  testPassageButton();
-  testLyricsButton();
+  testButton('.watson-passage-btn', passageEmotionScoresArray);
+  testButton('.watson-lyrics-btn', lyricsEmotionScoresArray);
+
+  // test gradient
+  createGradient();
 });
