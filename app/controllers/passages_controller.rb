@@ -9,12 +9,16 @@ class PassagesController < ApplicationController
 
   def create
     @passage = Passage.new(passage_params)
-    p passage_params
+    p @passage
 
-    if @passage.save
-      # Run through Watson analyzer
-      redirect_to "/passages"
-    end
+    @passage.save
+      redirect_to @passage
+  end
+
+  def show
+    passage_object = Passage.find(params[:id])
+    watson_object = passage_object.analyze_passage
+    @wat_return = Passage.pretty_watson(watson_object)
   end
 
   private
