@@ -20,7 +20,6 @@ class SongsController < ApplicationController
 
   def show
     @passage = Passage.last
-    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    p "I'm in songs/show!!!"
+    @emotion_data = Emotion.find_by(emotionable_id: @passage.id)
   end
 end
