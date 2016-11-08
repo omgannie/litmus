@@ -17,4 +17,9 @@ class SongsController < ApplicationController
     end
     redirect_to lyrics_search_lyrics_path
   end
+
+  def show
+    @passage = Passage.last
+    @emotion_data = Emotion.find_by(emotionable_id: @passage.id)
+  end
 end

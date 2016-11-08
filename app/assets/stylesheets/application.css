@@ -20,6 +20,7 @@ body {
   background-image: linear-gradient(#192933, #144546);
   font-family: 'Karla', sans-serif;
   color: #CCDBDC;
+  height: 100vh;
 }
 
 a:link, a:visited, a:active {
@@ -49,11 +50,12 @@ a:hover {
 }
 
 footer {
-  width: 100%;
+  width: 800px;
   padding: 40px;
   text-align: center;
   font-size: 14px;
   bottom: 0;
+  margin: 0 auto;
 }
 
 textarea {
@@ -117,5 +119,6 @@ input[type="submit"]:hover {
 
 form .dropdown {
   padding: 40px;
+  float: right;
   text-align: center;
 }

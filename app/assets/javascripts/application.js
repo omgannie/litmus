@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require d3
-$(document).ready(function(){
-  ajaxFormHandler();
-});
+// $(document).ready(function(){
+//   ajaxFormHandler();
+// });
