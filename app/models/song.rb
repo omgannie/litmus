@@ -3,7 +3,13 @@ class Song < ActiveRecord::Base
   validates :artist_name, :song_title, presence: true
 
   has_one   :lyric
-  has_one   :genre
+  belongs_to   :genre
+
+  def self.most_recent_without_lyrics
+    Song.recent.select do |song|
+      song.genre.has_lyrics
+    end
+  end
 
   def map_emotions(primary_emotion)
     case primary_emotion

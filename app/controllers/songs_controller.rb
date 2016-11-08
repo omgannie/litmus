@@ -13,8 +13,15 @@ class SongsController < ApplicationController
     parsed = @song.parse_recommendations(recommendations)
 
     parsed.each do |song|
-      Song.create(artist_name: song["artist"], song_title: song["track"])
+      Song.create(artist_name: song["artist"], song_title: song["track"], genre_id: genre.id)
     end
-    redirect_to lyrics_search_lyrics_path
+
+    has_lyrics = Genre.where(has_lyrics: true)
+
+    if has_lyrics
+      redirect_to lyrics_search_lyrics_path
+    else
+      redirect_to '/passages'
+    end
   end
 end
