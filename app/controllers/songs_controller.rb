@@ -25,6 +25,11 @@ class SongsController < ApplicationController
 
   def best_song_match
     Song.chosen_song
-    redirect_to root_path
+    redirect_to "/songs/show"
+  end
+
+  def show
+    @passage = Passage.last
+    @emotion_data = Emotion.find_by(emotionable_id: @passage.id)
   end
 end
