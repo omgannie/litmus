@@ -24,6 +24,12 @@ class PassagesController < ApplicationController
     watson_object = passage_object.analyze_passage
     @tone = Passage.emotion_tone(watson_object)
     @strongest_emotion = Passage.primary_emotion(@tone)
+    @emotions_analysis = Emotion.find_by(emotionable_id: params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
