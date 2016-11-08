@@ -15,4 +15,8 @@ class SongsController < ApplicationController
     end
     redirect_to lyrics_search_lyrics_path
   end
+
+  def compare_emotions
+    redirect_to '/passages'
+  end
 end

@@ -8,7 +8,7 @@ class LyricsController < ApplicationController
     lyric_objects = create_lyric_objects(songs, all_lyrics)
     create_emotion_objects(lyric_objects)
 
-    redirect_to '/passages'
+    redirect_to songs_compare_emotions_path
   end
 
   private
