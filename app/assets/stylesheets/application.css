@@ -21,10 +21,12 @@ body {
   font-family: 'Karla', sans-serif;
   color: #CCDBDC;
   height: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 a:link, a:visited, a:active {
-  color: #9AD1D4;
+  color: #247D7F;
   text-decoration: none;
   transition: 0.3s all ease-in;
 }
@@ -46,7 +48,7 @@ a:hover {
 }
 
 .nav h1 {
-  font-size: 60px;
+  font-size: 80px;
 }
 
 footer {
