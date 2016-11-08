@@ -17,9 +17,11 @@ class Song < ActiveRecord::Base
     end
   end
 
-  def self.chosen_song
+  def self.chosen_song(song_objects)
     if Song.most_recent_with_lyrics.length > 1
-
+      song_objects.each do |song_object|
+        song_object
+      end
     end
   end
 
