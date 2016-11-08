@@ -3,8 +3,7 @@ class Song < ActiveRecord::Base
   validates :artist_name, :song_title, presence: true
 
   has_one   :lyric
-  has_many  :categorizations
-  has_many  :genres, through: :categorizations
+  has_one   :genre
 
   def map_emotions(primary_emotion)
     case primary_emotion
