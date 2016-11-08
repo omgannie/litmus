@@ -16,8 +16,6 @@ class SongsController < ApplicationController
       Song.create(artist_name: song["artist"], song_title: song["track"], genre_id: genre.id)
     end
 
-    has_lyrics = Song.most_recent_without_lyrics
-
     if has_lyrics.length > 1
       redirect_to lyrics_search_lyrics_path
     else
@@ -26,6 +24,7 @@ class SongsController < ApplicationController
   end
 
   def best_song_match
+    Song.chosen_song
     redirect_to root_path
   end
 end

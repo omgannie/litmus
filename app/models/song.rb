@@ -5,9 +5,21 @@ class Song < ActiveRecord::Base
   has_one   :lyric
   belongs_to   :genre
 
-  def self.most_recent_without_lyrics
+  def self.most_recent_with_lyrics
     Song.recent.select do |song|
       song.genre.has_lyrics
+    end
+  end
+
+  def self.song_ids
+    Song.most_recent_with_lyrics.reject do |song|
+      !song.lyric_id
+    end
+  end
+
+  def self.chosen_song
+    if Song.most_recent_with_lyrics.length > 1
+
     end
   end
 
@@ -45,5 +57,6 @@ class Song < ActiveRecord::Base
     end
     metadata_list
   end
+
 
 end

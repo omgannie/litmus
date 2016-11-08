@@ -11,7 +11,7 @@ module EmotionConcern
   end
 
   module ClassMethods
-    def emotion_tone(analysis)
+    def emotion_tone(watson_object)
       emotions = []
       tones = analysis["document_tone"]["tone_categories"][0]["tones"]
 
@@ -21,7 +21,7 @@ module EmotionConcern
       emotions
     end
 
-    def format_watson_data(watson)
+    def format_watson_data(watson_emotion_tone)
       watson_database = Hash.new
 
       watson.each do |emotion|

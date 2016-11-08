@@ -1,7 +1,7 @@
 class LyricsController < ApplicationController
 
   def search_lyrics
-    songs = Song.most_recent_without_lyrics
+    songs = Song.most_recent_with_lyrics
 
     track_ids = find_track_ids(songs)
     all_lyrics = get_lyrics(track_ids)

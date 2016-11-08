@@ -1,4 +1,5 @@
 class Lyric < ActiveRecord::Base
+  scope :recent, -> { order("created_at DESC").limit(5) }
   include EmotionConcern
   validates :body, :song_id, presence: true
 
@@ -24,5 +25,11 @@ class Lyric < ActiveRecord::Base
       all_lyrics.push(lyrics.lyrics_body)
     end
     all_lyrics
+  end
+
+  def self.song_lyrics
+    Lyric.recent.select do |lyric|
+      lyric
+    end
   end
 end
