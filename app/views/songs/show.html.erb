@@ -2,17 +2,12 @@
   <div class="left">
     <h1>Here's the song we chose for you</h1>
     We hope you enjoy it.
-    <P>
-      <%= @passage.id %>
-      <%= @passage.body %>
-      <%= @emotion_data.joy %>
-      <%= @emotion_data.anger %>
-      <%= @emotion_data.fear %>
-      <%= @emotion_data.emotionable_id %>
-      <%= @emotion_data.emotionable_type %>
   </div>
   <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-
+    <p>
+      <%= content_tag :div, class: "emotion", data: {emotion_data: @emotion_data} do %>
+      <% end %>
+    </p>
   <BR>
   <%= link_to 'Back to Home', passages_path %>
 </div>
