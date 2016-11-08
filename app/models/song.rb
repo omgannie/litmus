@@ -6,7 +6,7 @@ class Song < ActiveRecord::Base
   has_many  :categorizations
   has_many  :genres, through: :categorizations
 
-  def map_emotions(primary_emotion)
+  def self.map_emotions(primary_emotion)
     case primary_emotion
     when "Anger"
       {min_valence: 0.3, max_valence: 0.6, min_energy: 0.7}
@@ -21,7 +21,7 @@ class Song < ActiveRecord::Base
     end
   end
 
-  def get_recommendations(genre_hash, primary_emotion)
+  def self.get_recommendations(genre_hash, primary_emotion)
     authenticate = RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV["SPOTIFY_CLIENT_SECRET"])
     RSpotify.raw_response = true
 
@@ -30,15 +30,15 @@ class Song < ActiveRecord::Base
     options_hash[:seed_genres] = genre_hash[:seed_genres]
     recommendations = RSpotify::Recommendations.generate(options_hash)
 
-    response = JSON.parse(recommendations)
+    @response = JSON.parse(recommendations)
+  end
 
-    # return relevant data as
+  def self.parse_recommendations
     metadata_list = []
-    response["tracks"].each do |track|
+    @response["tracks"].each do |track|
       metadata_list << {"artist" => track["artists"][0]["name"], "track" => track["name"]}
     end
     metadata_list
   end
 
-  
 end

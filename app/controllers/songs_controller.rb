@@ -10,8 +10,9 @@ class SongsController < ApplicationController
 
     @song = Song.new
     recommendations = @song.get_recommendations({ seed_genres: genre.categories }, emotion)
+    parsed = recommendations.parse_recommendations
 
-    recommendations.each do |song|
+    parsed.each do |song|
       Song.create(artist_name: song["artist"], song_title: song["track"])
     end
     redirect_to lyrics_search_lyrics_path
