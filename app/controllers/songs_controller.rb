@@ -4,13 +4,15 @@ class SongsController < ApplicationController
     genre_id = params[:genre].to_i
     genre = Genre.find_by(id: genre_id)
 
-    analysis = Passage.analyze_passage
+    analysis = Passage.last.analyze_passage
+    # p analysis
     tones = Passage.emotion_tone(analysis)
     emotion = Passage.primary_emotion(tones)
+    # p emotion
 
     @song = Song.new
     recommendations = @song.get_recommendations({ seed_genres: genre.categories }, emotion)
-    parsed = recommendations.parse_recommendations
+    parsed = @song.parse_recommendations(recommendations)
 
     parsed.each do |song|
       Song.create(artist_name: song["artist"], song_title: song["track"])
