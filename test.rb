@@ -1,40 +1,22 @@
-text = "You lift my heart up when the rest of me is down
-      You, you enchant me even when you're not around
-      If there are boundaries, I will try to knock them down
-      I’m latching on, babe, now I know what I have found
-      I feel we're close enough
-      Could I lock in your love?
-      I feel we’re close enough
-      Could I lock in your love?
-      Now I’ve got you in my space
-      I won’t let go of you
-      Got you shackled in my embrace
-      I’m latching on to you
-      I’m so en-captured, got me wrapped up in your touch
-      Feel so enamored, hold me tight within your clutch
-      How do you do it? You got me losing every breath
-      What did you give me to make my heart bleed out my chest?
-      I feel we're close enough
-      Could I lock in your love?
-      I feel we’re close enough
-      Could I lock in your love?
-      Now I’ve got you in my space
-      I won’t let go of you
-      Got you shackled in my embrace
-      I’m latching on to you
-      Now I’ve got you in my space
-      I won’t let go of you
-      Got you shackled in my embrace
-      I’m latching on to you
-      I’m latching on to you"
+require 'watson-tone-analyzer'
+
+def analyze_passage
+body =
+"Oh, it's you, I know
+You're the one I dream of
+Looks into my eyes
+Take me to the clouds above
+
+Oh, I lose control
+Can't seem to get enough
+When I wake from dream
+Tell me is it really love?"
 
 
+      init = ToneAnalyzer.new(ENV["WATSON_USERNAME"], ENV["WATSON_PASSWORD"])
+      response = init.analyze(body)
+end
 
-    init = ToneAnalyzer.new(ENV["WATSON_USERNAME"], ENV["WATSON_PASSWORD"])
-    response = init.analyze(text)
-
-    p response
-
-
+p analyze_passage
 
 
