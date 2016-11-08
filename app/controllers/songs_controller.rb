@@ -4,13 +4,15 @@ class SongsController < ApplicationController
     genre_id = params[:genre].to_i
     genre = Genre.find_by(id: genre_id)
 
-    # emotion = # Passage.primary_emotion
-    # attribute_map = Song.map_emotions(emotion)
+    analysis = Passage.analyze_passage
+    tones = Passage.emotion_tone(analysis)
+    emotion = Passage.primary_emotion(tones)
 
     @song = Song.new
-    recommendations = @song.get_recommendations({ seed_genres: genre.categories })
+    recommendations = @song.get_recommendations({ seed_genres: genre.categories }, emotion)
+    parsed = recommendations.parse_recommendations
 
-    recommendations.each do |song|
+    parsed.each do |song|
       Song.create(artist_name: song["artist"], song_title: song["track"])
     end
     redirect_to lyrics_search_lyrics_path
