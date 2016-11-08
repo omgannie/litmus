@@ -1,8 +1,40 @@
-test = [{"name"=>"Anger", "score"=>0.079879}, {"name"=>"Disgust", "score"=>0.040404}, {"name"=>"Fear", "score"=>0.013792}, {"name"=>"Joy", "score"=>0.012911}, {"name"=>"Sadness", "score"=>0.887427}]
+text = "You lift my heart up when the rest of me is down
+      You, you enchant me even when you're not around
+      If there are boundaries, I will try to knock them down
+      I’m latching on, babe, now I know what I have found
+      I feel we're close enough
+      Could I lock in your love?
+      I feel we’re close enough
+      Could I lock in your love?
+      Now I’ve got you in my space
+      I won’t let go of you
+      Got you shackled in my embrace
+      I’m latching on to you
+      I’m so en-captured, got me wrapped up in your touch
+      Feel so enamored, hold me tight within your clutch
+      How do you do it? You got me losing every breath
+      What did you give me to make my heart bleed out my chest?
+      I feel we're close enough
+      Could I lock in your love?
+      I feel we’re close enough
+      Could I lock in your love?
+      Now I’ve got you in my space
+      I won’t let go of you
+      Got you shackled in my embrace
+      I’m latching on to you
+      Now I’ve got you in my space
+      I won’t let go of you
+      Got you shackled in my embrace
+      I’m latching on to you
+      I’m latching on to you"
 
 
-  def primary_emotion(emotion_list)
-    emotion_list.max { |emotion_1, emotion_2| emotion_1["score"] <=> emotion_2["score"] }["name"]
-  end
 
-p primary_emotion(test)
+    init = ToneAnalyzer.new(ENV["WATSON_USERNAME"], ENV["WATSON_PASSWORD"])
+    response = init.analyze(text)
+
+    p response
+
+
+
+

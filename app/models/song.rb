@@ -6,7 +6,7 @@ class Song < ActiveRecord::Base
   has_many  :categorizations
   has_many  :genres, through: :categorizations
 
-  def map_emotions(primary_emotion)
+  def self.map_emotions(primary_emotion)
     case primary_emotion
     when "Anger"
       { options: "min_valence: 0.3, max_valence, 0.6, min_energy: 0.7"}
