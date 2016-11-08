@@ -6,7 +6,10 @@ class SongsController < ApplicationController
 
     analysis = Passage.last.analyze_passage
     tones = Passage.emotion_tone(analysis)
-    emotion = Passage.primary_emotion(tones)
+    p "idkidkidkidk"
+    p emotion = Passage.primary_emotion(tones)
+    # REFACTOR: Delete 3 lines above, add line similar to line below
+    # emotion =  Passage.last.emotion.strongest_emotion
 
     @song = Song.new
     recommendations = @song.get_recommendations({ seed_genres: genre.categories }, emotion)

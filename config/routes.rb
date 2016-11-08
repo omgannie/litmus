@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :passages, only: [:index, :create, :show]
+  resources :passages, only: [:index, :create]
   resources :genres, only: [:show]
   resources :songs, only: [:show]
 
