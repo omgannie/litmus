@@ -38,4 +38,21 @@ describe "emotion validations" do
     emo = Emotion.create(emotionable_id: emotionable_id_score)
     expect(emo.emotionable_id).to eq emotionable_id_score
   end
+
+  it "is not valid without a attributes" do
+    emotion = Emotion.create
+    expect(emotion).to_not be_valid
+  end
+
+  it "is not valid without a joy" do
+    emotion = Emotion.create
+    expect(emotion).to_not be_valid
+  end
+
+
+  # it "is not valid without a joy" do
+  #   lyric = Lyric.create
+  #   lyric.song_id = 1
+  #   expect(lyric).to_not be_valid
+  # end
 end

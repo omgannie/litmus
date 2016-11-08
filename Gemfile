@@ -51,8 +51,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'pry'
-  gem 'shoulda-matchers'
-  gem 'shoulda'
+  gem 'factory_girl_rails'
 end
 
 group :development do
