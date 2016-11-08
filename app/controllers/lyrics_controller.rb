@@ -9,7 +9,7 @@ class LyricsController < ApplicationController
     attach_lyric_id(lyric_objects)
     create_emotion_objects(lyric_objects)
 
-    redirect_to '/passages'
+    redirect_to songs_best_song_match_path
   end
 
   private
