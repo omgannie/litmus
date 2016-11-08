@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108024313) do
+ActiveRecord::Schema.define(version: 20161108155800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "categorizations", force: :cascade do |t|
-    t.integer  "song_id"
-    t.integer  "genre_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "emotions", force: :cascade do |t|
     t.decimal  "joy"
@@ -62,6 +55,7 @@ ActiveRecord::Schema.define(version: 20161108024313) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "chosen_song", default: false
+    t.integer  "genre_id"
   end
 
 end
