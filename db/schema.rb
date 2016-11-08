@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106221338) do
+ActiveRecord::Schema.define(version: 20161108020702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20161106221338) do
   end
 
   create_table "emotions", force: :cascade do |t|
-    t.decimal  "joy"
-    t.decimal  "sadness"
-    t.decimal  "anger"
-    t.decimal  "disgust"
-    t.decimal  "fear"
+    t.string   "joy"
+    t.string   "sadness"
+    t.string   "anger"
+    t.string   "disgust"
+    t.string   "fear"
     t.integer  "emotionable_id"
     t.string   "emotionable_type"
     t.datetime "created_at",       null: false
@@ -59,8 +59,9 @@ ActiveRecord::Schema.define(version: 20161106221338) do
     t.string   "artist_name"
     t.string   "song_title"
     t.integer  "lyric_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "chosen_one",  default: false
   end
 
 end
