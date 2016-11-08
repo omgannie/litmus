@@ -8,13 +8,13 @@
 
 Genre.delete_all
 
-Genre.create(name: "African", categories: ["afrobeat"], english: false)
-Genre.create(name: "Asian", categories: ["cantopop", "k-pop", "mandopop", "philippines-opm"], english: false)
+Genre.create(name: "African", categories: ["afrobeat"])
+Genre.create(name: "Asian", categories: ["cantopop", "k-pop", "mandopop", "philippines-opm"])
 Genre.create(name: "Blues", categories: ["blues", "guitar"])
-Genre.create(name: "Brazilian", categories: ["bossanova", "mpb", "pagode", "samba", "sertanejo"], english: false)
+Genre.create(name: "Brazilian", categories: ["bossanova", "mpb", "pagode", "samba", "sertanejo"])
 Genre.create(name: "Country", categories: ["country"])
-Genre.create(name: "Classical", categories: ["classical", "opera", "piano"], english: false)
-Genre.create(name: "Dubstep", categories: ["dub", "dubstep", "post-dubstep"], english: false)
+Genre.create(name: "Classical", categories: ["classical", "opera", "piano"])
+Genre.create(name: "Dubstep", categories: ["dub", "dubstep", "post-dubstep"])
 Genre.create(name: "Easy-Listening", categories: ["acoustic", "chill", "new-age", "sleep"])
 Genre.create(name: "Electronic", categories: ["ambient", "dance", "electronic", "house", "trance"])
 Genre.create(name: "European", categories: ["british", "french", "german", "spanish", "swedish"])
