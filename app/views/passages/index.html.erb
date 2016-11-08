@@ -6,20 +6,10 @@
     <h1 class="page-header">Passage to Analyze</h1>
       Enter an excerpt of your choosing. We will analyze the emotional tones detected and provide songs to match the mood.
   </div>
-  <%= form_for @passage, remote: true do |f| %>
+  <%= form_for @passage do |f| %>
     <%= f.text_area(:body, class: "form-control", size: "50x24") %>
     <br>
     <center><%= f.submit "Check the Emotional Pulse", class: "submit-passage btn btn-primary" %></center>
   <% end %>
   <br><br>
-  <div class="select-genre">
-    <div class="left">
-      <h1>Chime In</h1>
-      We're going to fine-tune the passage you submitted. In order to find the ideal music to your ears, please select a music genre. We don't want to strike a false note, so it's your turn to call the tune.
-    </div>
-    <%= form_tag({ controller: "songs", action: 'search_song'}, class: "dropdown" ,method: "get" ) do %>
-      <%= select_tag(:genre, options_for_select(@genre_options)) %>
-      <%= submit_tag "Select", name: nil, class: 'btn' %>
-    <% end %>
-  </div>
 </div>

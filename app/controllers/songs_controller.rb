@@ -17,4 +17,10 @@ class SongsController < ApplicationController
     end
     redirect_to lyrics_search_lyrics_path
   end
+
+  def show
+    @passage = Passage.last
+    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    p "I'm in songs/show!!!"
+  end
 end

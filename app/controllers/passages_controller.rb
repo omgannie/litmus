@@ -1,6 +1,5 @@
 class PassagesController < ApplicationController
   def index
-    @genre_options =  Genre.all.map{ |genre| [genre.name, genre.id] }
     @passage = Passage.new
   end
 
@@ -16,7 +15,8 @@ class PassagesController < ApplicationController
       new_emotion_object.emotionable_type = @passage.class
       new_emotion_object.save
     end
-    redirect_to @passage
+
+    redirect_to '/genres/show'
   end
 
   def show
@@ -25,11 +25,6 @@ class PassagesController < ApplicationController
     @tone = Passage.emotion_tone(watson_object)
     @strongest_emotion = Passage.primary_emotion(@tone)
     @emotions_analysis = Emotion.find_by(emotionable_id: params[:id])
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   private
