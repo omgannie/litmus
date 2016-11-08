@@ -1,6 +1,7 @@
 class LyricsController < ApplicationController
 
   def search_lyrics
+    p "88888888888888"
     songs = Song.most_recent_with_lyrics
 
     track_ids = find_track_ids(songs)

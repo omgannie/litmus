@@ -4,12 +4,8 @@ class SongsController < ApplicationController
     genre_id = params[:genre].to_i
     genre = Genre.find_by(id: genre_id)
 
-    analysis = Passage.last.analyze_passage
-    tones = Passage.emotion_tone(analysis)
-    p "idkidkidkidk"
-    p emotion = Passage.primary_emotion(tones)
-    # REFACTOR: Delete 3 lines above, add line similar to line below
-    # emotion =  Passage.last.emotion.strongest_emotion
+    formatted_emotions = Emotion.format_emotions(Passage.last.emotion)
+    emotion =  Emotion.strongest_emotion(formatted_emotions)
 
     @song = Song.new
     recommendations = @song.get_recommendations({ seed_genres: genre.categories }, emotion)
@@ -19,6 +15,8 @@ class SongsController < ApplicationController
       Song.create(artist_name: song["artist"], song_title: song["track"], genre_id: genre.id)
     end
 
+    has_lyrics = Song.most_recent_with_lyrics
+
     if has_lyrics.length > 1
       redirect_to lyrics_search_lyrics_path
     else
@@ -27,7 +25,7 @@ class SongsController < ApplicationController
   end
 
   def best_song_match
-    Song.chosen_song
+    # Song.chosen_song
     redirect_to "/songs/show"
   end
 

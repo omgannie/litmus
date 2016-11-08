@@ -4,13 +4,16 @@ class Emotion < ActiveRecord::Base
   belongs_to  :emotionable, polymorphic: true
 
   def self.strongest_emotion(formatted_emotions)
-    formatted_emotions.max do |first_emotion, second_emotion|
-      first_emotion <=> second_emotion
-    end
+    formatted_emotions.max { |first_emotion, second_emotion| first_emotion["score"] <=> second_emotion["score"] }["name"]
   end
 
   def self.format_emotions(emotion_object)
     emotions = []
-    emotions.push({ "joy" => emotion_object.joy }, { "disgust" => emotion_object.disgust }, { "anger" =>emotion_object.anger }, { "fear" => emotion_object.fear }, { "sadness" => emotion_object.sadness })
+    emotions.push(
+      { "name" => "joy", "score" => emotion_object.joy },
+      { "name" => "disgust", "score" => emotion_object.disgust },
+      { "name" => "anger",  "score" => emotion_object.anger },
+      { "name" => "fear", "score" => emotion_object.fear },
+      { "name" => "sadness", "score" => emotion_object.sadness })
   end
 end
