@@ -2,18 +2,19 @@
 <html>
 <head>
   <title>Litmus</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="nav">
+  <div class="nav animated fadeInDown">
     <h1><%= link_to "Litmus", root_path %></h1>
   </div>
-  <div class="container">
+  <div class="container animated fadeInUp">
     <%= yield %>
   </div>
-  <footer>
+  <footer class="animated fadeInUp">
     created by <a href="http://www.github.com/sayamkim" target="_blank">Sayam Kim</a>, <a href="http://www.github.com/kerianngannon" target="_blank">Keri Gannon</a>, <a href="http://www.github.com/jsgarrett1" target="_blank">Joel Garrett</a>, & <a href="http://www.github.com/omgannie" target="_blank">Annie Oh</a>
   </footer>
 </body>

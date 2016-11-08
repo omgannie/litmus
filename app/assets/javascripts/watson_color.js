@@ -2,13 +2,6 @@
 // RGB is determined by emotion- first digit of score
 // opacity is determined by second digit of score - measurement of intensity of emotion?
 
-var lyricsEmotionTones = lyricsData['document_tone']['tone_categories'][0];
-var lyricsEmotionScoresArray = lyricsEmotionTones.tones;
-
-// returns a hash saved to a variable
-var passageEmotionTones = passageData['document_tone']['tone_categories'][0];
-var passageEmotionScoresArray = passageEmotionTones.tones;
-
 // fetches highest ranking emotion
 function fetchHighestRankingEmotion(arrayOfEmotionScores) {
   var highestRankingEmotion = arrayOfEmotionScores[0];
