@@ -62,14 +62,9 @@ class LyricsController < ApplicationController
 
   def attach_lyric_id(lyric_objects)
     lyric_objects.each do |lyric_object|
-      p "?????????????"
-      p lyric_object
       current_song = Song.find_by(id: lyric_object.song_id)
-      p "-------------"
-      p current_song
       current_song.lyric_id = lyric_object.id
-      p "@@@@@@@@@@@@@@@@@"
-      p current_song
+      current_song.save
     end
   end
 end
