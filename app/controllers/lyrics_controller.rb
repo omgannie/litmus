@@ -6,6 +6,7 @@ class LyricsController < ApplicationController
     track_ids = find_track_ids(songs)
     all_lyrics = get_lyrics(track_ids)
     lyric_objects = create_lyric_objects(songs, all_lyrics)
+    attach_lyric_id(lyric_objects)
     create_emotion_objects(lyric_objects)
 
     redirect_to '/passages'
@@ -56,6 +57,14 @@ class LyricsController < ApplicationController
       new_emotion_object.emotionable_id = lyric_object.id
       new_emotion_object.emotionable_type = lyric_object.class
       new_emotion_object.save
+    end
+  end
+
+  def attach_lyric_id(lyric_objects)
+    lyric_objects.each do |lyric_object|
+      current_song = Song.find_by(id: lyric_object.song_id)
+      current_song.lyric_id = lyric_object.id
+      current_song.save
     end
   end
 end
