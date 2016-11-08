@@ -1,10 +1,11 @@
 class Song < ActiveRecord::Base
+  scope :recent, -> { order("created_at DESC").limit(5) }
   validates :artist_name, :song_title, presence: true
 
   has_one   :lyric
   has_many  :categorizations
   has_many  :genres, through: :categorizations
-  
+
   def map_emotions(primary_emotion)
     case primary_emotion
     when "Anger"
@@ -28,6 +29,7 @@ class Song < ActiveRecord::Base
     options_hash[:limit] = 5
     options_hash[:seed_genres] = genre_hash[:seed_genres]
     recommendations = RSpotify::Recommendations.generate(options_hash)
+
     response = JSON.parse(recommendations)
 
     # return relevant data as
