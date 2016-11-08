@@ -5,10 +5,8 @@ class SongsController < ApplicationController
     genre = Genre.find_by(id: genre_id)
 
     analysis = Passage.last.analyze_passage
-    # p analysis
     tones = Passage.emotion_tone(analysis)
     emotion = Passage.primary_emotion(tones)
-    # p emotion
 
     @song = Song.new
     recommendations = @song.get_recommendations({ seed_genres: genre.categories }, emotion)
