@@ -32,13 +32,14 @@ class Song < ActiveRecord::Base
   def self.strongest_emotion_matches(song_lyric_matches)
     emotion_object_matches = []
     passage_formatted_emotion = Emotion.format_emotions(Passage.last.emotion)
-    passage_emotion = Emotion.strongest_emotion(passage_formatted_emotion)
+    passage_emotion = Emotion.primary_emotion(passage_formatted_emotion)
 
     song_lyric_matches.each do |lyric_object|
       formatted_emotion = Emotion.format_emotions(lyric_object.emotion)
-      lyric_emotion = Emotion.strongest_emotion(formatted_emotion)
+      lyric_strongest_emotion = Emotion.primary_emotion(formatted_emotion)
+      lyric_object.emotion.update_attributes(strongest_emotion: lyric_strongest_emotion)
 
-      if lyric_emotion == passage_emotion
+      if lyric_strongest_emotion == passage_emotion
         emotions = Emotion.where(emotionable_id: lyric_object.id)
         emotions.each do |emotion|
           emotion_object_matches.push(emotion)
@@ -50,11 +51,19 @@ class Song < ActiveRecord::Base
   end
 
   def self.chosen_song(emotion_object_matches)
+    emotion_object_matches[0].strongest_emotion
     if Song.most_recent_with_lyrics.length > 1
       values = Emotion.strongest_matches(emotion_object_matches)
       winning_value = Emotion.compare_matches(values)
-      winning_emotion_object = Emotion.find_by(joy: winning_value)
-      winning_lyric_object = winning_emotion_object.lyric
+
+      winning_emotion_object = nil
+
+      until winning_emotion_object != nil
+
+        winning_emotion_object = Emotion.find_by(sadness: winning_value)
+        winning_emotion_object = Emotion.find_by(anger: winning_value)
+
+      # winning_lyric_object = winning_emotion_object.lyric
     else
       # search songs without lyrics (song genres don't have lyrics)
     end

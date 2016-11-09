@@ -3,16 +3,21 @@ class Emotion < ActiveRecord::Base
 
   belongs_to  :emotionable, polymorphic: true
 
-  def self.strongest_emotion(formatted_emotions)
+  def strongest_emotion
+    formatted_emotions = Emotion.format_emotions(self)
+    Emotion.primary_emotion(formatted_emotions)
+  end
+
+  def self.primary_emotion(formatted_emotions)
     formatted_emotions.max { |first_emotion, second_emotion| first_emotion["score"] <=> second_emotion["score"] }["name"]
   end
 
   def self.strongest_matches(emotion_objects)
     format = Emotion.format_emotions(emotion_objects[0])
-    strongest_emotion = Emotion.strongest_emotion(format)
+    primary_emotion = Emotion.primary_emotion(format)
     values = []
     emotion_objects.each do |emotion_object|
-      values.push(emotion_object.read_attribute(strongest_emotion).to_f)
+      values.push(emotion_object.read_attribute(primary_emotion).to_f)
     end
     values
   end
