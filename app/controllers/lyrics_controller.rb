@@ -1,7 +1,7 @@
 class LyricsController < ApplicationController
 
   def search_lyrics
-    songs = Song.recent
+    songs = Song.most_recent_with_lyrics
 
     track_ids = find_track_ids(songs)
     all_lyrics = get_lyrics(track_ids)
@@ -9,7 +9,7 @@ class LyricsController < ApplicationController
     attach_lyric_id(lyric_objects)
     create_emotion_objects(lyric_objects)
 
-    redirect_to '/songs/show'
+    redirect_to songs_best_song_match_path
   end
 
   private

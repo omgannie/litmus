@@ -19,14 +19,6 @@ class PassagesController < ApplicationController
     redirect_to '/genres/show'
   end
 
-  def show
-    passage_object = Passage.find(params[:id])
-    watson_object = passage_object.analyze_passage
-    @tone = Passage.emotion_tone(watson_object)
-    @strongest_emotion = Passage.primary_emotion(@tone)
-    @emotions_analysis = Emotion.find_by(emotionable_id: params[:id])
-  end
-
   private
   def passage_params
     params.require(:passage).permit(:body)

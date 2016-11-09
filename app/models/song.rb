@@ -3,7 +3,61 @@ class Song < ActiveRecord::Base
   validates :artist_name, :song_title, presence: true
 
   has_one   :lyric
-  has_one   :genre
+  belongs_to   :genre
+
+  def self.most_recent_with_lyrics
+    Song.recent.select do |song|
+      song.genre.has_lyrics
+    end
+  end
+
+  def self.song_ids
+    song_ids = []
+    Song.recent.each do |song|
+      song_ids.push(song.id)
+    end
+    song_ids
+  end
+
+  def self.match_lyric_to_song(recent_lyrics)
+    song_lyric_matches = []
+    recent_lyrics.each do |lyric_object|
+      if Song.song_ids.include?(lyric_object.song_id)
+        song_lyric_matches.push(lyric_object)
+      end
+    end
+    song_lyric_matches
+  end
+
+  def self.strongest_emotion_matches(song_lyric_matches)
+    emotion_object_matches = []
+    passage_formatted_emotion = Emotion.format_emotions(Passage.last.emotion)
+    passage_emotion = Emotion.strongest_emotion(passage_formatted_emotion)
+
+    song_lyric_matches.each do |lyric_object|
+      formatted_emotion = Emotion.format_emotions(lyric_object.emotion)
+      lyric_emotion = Emotion.strongest_emotion(formatted_emotion)
+
+      if lyric_emotion == passage_emotion
+        emotion_object = Emotion.where(emotionable_id: lyric_object.id)
+        emotion_object_matches.push(emotion_object)
+      end
+    end
+
+    emotion_object_matches
+  end
+
+  def self.chosen_song(emotion_object_matches)
+    if Song.most_recent_with_lyrics.length > 1
+      values = Emotion.strongest_matches(emotion_object_matches)
+      winning_value = Emotion.compare_matches(values)
+      winning_emotion_object = Emotion.where(joy: winning_value)
+      # This is not working. Trump ruined my focus.
+      winning_lyric_object = winning_emotion_object.lyric
+    else
+      # search songs without lyrics (song genres don't have lyrics)
+    end
+  end
 
   def map_emotions(primary_emotion)
     case primary_emotion
@@ -39,5 +93,6 @@ class Song < ActiveRecord::Base
     end
     metadata_list
   end
+
 
 end
