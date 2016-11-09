@@ -34,7 +34,7 @@ class Song < ActiveRecord::Base
     passage_strongest_emotion = Passage.last.emotion.strongest_emotion
 
     song_lyric_matches.each do |lyric_object|
-      lyric_strongest_emotion = lyric_object.strongest_emotion
+      lyric_strongest_emotion = lyric_object.emotion.strongest_emotion
 
       if lyric_strongest_emotion == passage_strongest_emotion
         emotions = Emotion.where(emotionable_id: lyric_object.id)
@@ -48,7 +48,7 @@ class Song < ActiveRecord::Base
   end
 
   def self.chosen_song(emotion_object_matches)
-    emotion_object_matches[0].strongest_emotion
+
     if Song.most_recent_with_lyrics.length > 1
       values = Emotion.strongest_matches(emotion_object_matches)
       winning_value = Emotion.compare_matches(values)

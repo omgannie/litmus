@@ -4,8 +4,7 @@ class SongsController < ApplicationController
     genre_id = params[:genre].to_i
     genre = Genre.find_by(id: genre_id)
 
-    formatted_emotions = Emotion.format_emotions(Passage.last.emotion)
-    emotion =  Emotion.primary_emotion(formatted_emotions).capitalize!
+    emotion = Passage.last.emotion.strongest_emotion.capitalize!
 
     @song = Song.new
     recommendations = @song.get_recommendations({ seed_genres: genre.categories }, emotion)
