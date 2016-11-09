@@ -17,19 +17,14 @@
 
 $(document).ready(function() {
   var passageData = fetchPassageEmotionScores();
-  var lyricsData = fetchLyricsEmotionScores();
-
   var strongestPassage = fetchStrongestEmotionFromPassage(passageData);
-  var strongestLyrics = fetchStrongestEmotionFromLyrics(strongestPassage);
 
-  var passageColors = createColors(passageData);
-  var lyricsColors = createColors(lyrics);
+  var arrayOfColors = createColors(passageData);
 
   var passageShades = [];
   var lyricShades = [];
 
-  var passagePercentages = percentageConversion(passageData);
-  var lyricPercentages = percentageConversion(lyricsData);
+  var percentages = percentageConversion(passageData);
 
   for(var i=0; i < passageColors.length; i++) {
     var shade = formatHSL(passageColors[i]);
@@ -37,20 +32,8 @@ $(document).ready(function() {
     console.log(passageColors[i].score);
     console.log(percentages[i]);
     console.log(shade);
-    console.log(shade.toString());
-    passageShades.push(shade.toString());
+    shades.push(shade.toString());
   };
 
-  for(var i=0; i < lyricsColors.length; i++) {
-    var shade = formatHSL(lyricsColors[i]);
-    console.log(lyricsColors[i].emotion);
-    console.log(lyricsColors[i].score);
-    console.log(percentages[i]);
-    console.log(shade);
-    console.log(shade.toString());
-    lyricShades.push(shade.toString());
-  };
-
-  createPassageGradient(passageColors, passageShades, passagePercentages);
-  createLyricsGradient(lyricsColors, lyricShades, lyricPercentages);
+  createPassageGradient(arrayOfColors, shades, percentages);
 });
