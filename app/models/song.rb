@@ -53,7 +53,7 @@ class Song < ActiveRecord::Base
     emotion_object_matches = Song.strongest_emotion_matches(song_lyric_matches)
 
     values = Emotion.strongest_matches(emotion_object_matches)
-    p final_value = Emotion.compare_matches(values)
+    final_value = Emotion.compare_matches(values)
 
     emotion_object_matches.each do |emotion_object|
       if emotion_object.read_attribute(Passage.last.emotion.strongest_emotion) == final_value
