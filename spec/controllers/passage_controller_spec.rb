@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe PassagesController do
-  let!(:passage) { Passage.create }
+  let(:passage) { Passage.new(body: "anything") }
 
   describe "GET #index" do
     it "responds with status code 200" do
@@ -11,7 +11,7 @@ describe PassagesController do
 
     it "assigns the recent passage as @passage" do
       get :index
-      expect(assigns(:passage)).to eq([@passage])
+      expect(assigns(:passage)).to eq(@passage)
     end
 
     it "renders the :index template" do
