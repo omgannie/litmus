@@ -12,6 +12,18 @@ function fetchStrongestEmotionFromPassage() {
   return strongest;
 };
 
+function fetchLyricsEmotionScores() {
+  var emotionData = $('.emotion-lyrics').data('lyricsEmotion');
+
+  return emotionData;
+};
+
+function fetchStrongestEmotionFromLyrics() {
+  var strongest = $('.emotion-lyrics').data('lyricsEmotion');
+
+  var strongest;
+};
+
 // step 2: change emotions scores into percentages
 // function is in data_percentage_conversion.js
 

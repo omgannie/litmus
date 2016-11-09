@@ -43,7 +43,7 @@ Color.prototype.saturation = function() {
       return 0.5;
     };
   } else if (this.emotion === 'joy') {
-    if (this.score >= 0.75) {
+    if (this.score > 0.75) {
       return 0.9;
     } else if (this.score > 0.5) {
       return 0.7;

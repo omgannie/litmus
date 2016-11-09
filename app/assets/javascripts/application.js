@@ -17,19 +17,19 @@
 
 $(document).ready(function() {
   var passageData = fetchPassageEmotionScores();
-
   var strongestPassage = fetchStrongestEmotionFromPassage(passageData);
 
   var arrayOfColors = createColors(passageData);
 
-  var shades = [];
+  var passageShades = [];
+  var lyricShades = [];
 
   var percentages = percentageConversion(passageData);
 
-  for(var i=0; i < arrayOfColors.length; i++) {
-    var shade = formatHSL(arrayOfColors[i]);
-    console.log(arrayOfColors[i].emotion);
-    console.log(arrayOfColors[i].score);
+  for(var i=0; i < passageColors.length; i++) {
+    var shade = formatHSL(passageColors[i]);
+    console.log(passageColors[i].emotion);
+    console.log(passageColors[i].score);
     console.log(percentages[i]);
     console.log(shade);
     shades.push(shade.toString());
