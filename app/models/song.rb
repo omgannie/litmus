@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
   has_one   :lyric
   has_one   :genre
 
-  def self.map_emotions(primary_emotion)
+  def map_emotions(primary_emotion)
     case primary_emotion
     when "Anger"
       {min_valence: 0.3, max_valence: 0.6, min_energy: 0.7}
@@ -20,7 +20,7 @@ class Song < ActiveRecord::Base
     end
   end
 
-  def self.get_recommendations(genre_hash, primary_emotion)
+  def get_recommendations(genre_hash, primary_emotion)
     authenticate = RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV["SPOTIFY_CLIENT_SECRET"])
     RSpotify.raw_response = true
 
