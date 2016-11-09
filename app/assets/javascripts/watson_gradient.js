@@ -31,15 +31,15 @@ function createPassageGradient(colorArray, shadesArray, percentages) {
   linearGradient.append("stop")
                   .attr("offset", percentages[1])
                   .attr("stop-color", shadesArray[2]);
-  // linearGradient.append("stop")
-  //                 .attr("offset", percentages[2])
-  //                 .attr("stop-color", shadesArray[3]);
-  // linearGradient.append("stop")
-  //                 .attr("offset", percentages[3])
-  //                 .attr("stop-color", shadesArray[4]);
-  // linearGradient.append("stop")
-  //                 .attr("offset", percentages[4])
-  //                 .attr("stop-color", shadesArray[4]);
+  linearGradient.append("stop")
+                  .attr("offset", percentages[2])
+                  .attr("stop-color", shadesArray[3]);
+  linearGradient.append("stop")
+                  .attr("offset", percentages[3])
+                  .attr("stop-color", shadesArray[4]);
+  linearGradient.append("stop")
+                  .attr("offset", '100%')
+                  .attr("stop-color", shadesArray[4]);
 
   // linearGradient.append("stop")
   //                 .attr("offset", '0%')

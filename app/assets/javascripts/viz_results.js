@@ -1,6 +1,6 @@
 // step 1: access emotions data from view
 function fetchPassageEmotionScores() {
-  var emotionData = $('.emotion-passage').data('emotionData');
+  var emotionData = $('.emotion-passage').data('passageEmotion');
 
   return emotionData;
 };
