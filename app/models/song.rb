@@ -46,23 +46,25 @@ class Song < ActiveRecord::Base
     final_lyric = nil
     final_song = nil
 
-    if Song.most_recent_with_lyrics.length > 1
-
-    lyrics = Lyric.recent
-    song_lyric_matches = Song.match_lyric_to_song(lyrics)
-    emotion_object_matches = Song.strongest_emotion_matches(song_lyric_matches)
-
-    values = Emotion.strongest_matches(emotion_object_matches)
-    final_value = Emotion.compare_matches(values)
-
-    emotion_object_matches.each do |emotion_object|
-      if emotion_object.read_attribute(Passage.last.emotion.strongest_emotion) == final_value
-        final_lyric = Lyric.find_by(id: emotion_object.emotionable_id)
-        final_song = final_lyric.song
-      end
-      end
-    else
+    if Song.most_recent_with_lyrics.length == 0
       final_song = Song.recent.offset(rand(Song.recent.count)).first
+    elsif Song.most_recent_with_lyrics.length >= 1
+      lyrics = Lyric.recent
+      song_lyric_matches = Song.match_lyric_to_song(lyrics)
+      emotion_object_matches = Song.strongest_emotion_matches(song_lyric_matches)
+
+      values = Emotion.strongest_matches(emotion_object_matches)
+      final_value = Emotion.compare_matches(values)
+
+      strongest_passage_emotion = Passage.last.emotion.strongest_emotion
+      strongest_passage_emotion
+
+      emotion_object_matches.each do |emotion_object|
+        if emotion_object.read_attribute(strongest_passage_emotion) == final_value
+          final_lyric = Lyric.find_by(id: emotion_object.emotionable_id)
+          final_song = final_lyric.song
+        end
+      end
     end
     final_song
   end
