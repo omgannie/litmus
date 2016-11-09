@@ -47,17 +47,29 @@ class Song < ActiveRecord::Base
     emotion_object_matches
   end
 
-  def self.chosen_song(emotion_object_matches)
+  def self.chosen_song
+    final_lyric = nil
+    final_song = nil
 
     if Song.most_recent_with_lyrics.length > 1
-      values = Emotion.strongest_matches(emotion_object_matches)
-      winning_value = Emotion.compare_matches(values)
-      winning_emotion_object = nil
 
-      # winning_lyric_object = winning_emotion_object.lyric
+    lyrics = Lyric.recent
+    song_lyric_matches = Song.match_lyric_to_song(lyrics)
+    emotion_object_matches = Song.strongest_emotion_matches(song_lyric_matches)
+
+      values = Emotion.strongest_matches(emotion_object_matches)
+      final_value = Emotion.compare_matches(values)
+
+      emotion_object_matches.each do |emotion_object|
+        if emotion_object.read_attribute(emotion_object.strongest_emotion) == final_value
+          final_lyric = Lyric.find_by(id: emotion_object.emotionable_id)
+          final_song = final_lyric.song
+        end
+      end
     else
-      # search songs without lyrics (song genres don't have lyrics)
+      final_song = Song.recent.offset(rand(Song.recent.count)).first
     end
+    final_song
   end
 
   def map_emotions(primary_emotion)
