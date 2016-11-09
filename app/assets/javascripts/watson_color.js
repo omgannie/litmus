@@ -27,27 +27,27 @@ Color.prototype.saturation = function() {
       return 0.5;
     };
   } else if (this.emotion === 'disgust') {
-    if (this.score >= 0.75) {
+    if (this.score > 0.75) {
       return 0.8;
-    } else if (this.score >= 0.50) {
+    } else if (this.score > 0.5) {
       return 0.7;
-    } else if (this.score <= 0.50) {
+    } else if (this.score < 0.5) {
       return 0.5;
     };
   } else if (this.emotion === 'fear') {
     if (this.score > 0.75) {
       return 0.9;
-    } else if (this.score >= 0.50) {
+    } else if (this.score > 0.5) {
       return 0.7;
-    } else if (this.score <= 0.50) {
+    } else if (this.score < 0.5) {
       return 0.5;
     };
   } else if (this.emotion === 'joy') {
     if (this.score >= 0.75) {
       return 0.9;
-    } else if (this.score >= 0.50) {
+    } else if (this.score > 0.5) {
       return 0.7;
-    } else if (this.score <= 0.50) {
+    } else if (this.score < 0.5) {
       return 0.5;
     };
   } else if (this.emotion === 'sadness') {
@@ -62,12 +62,12 @@ Color.prototype.saturation = function() {
 };
 
 Color.prototype.lightness = function() {
-  if (this.score >= 0.75) {
-    return 1;
-  } else if (this.score >= 0.50) {
-    return 0.7;
-  } else if (this.score <= 0.50) {
+  if (this.score > 0.75) {
+    return 0.3;
+  } else if (this.score > 0.5) {
     return 0.4;
+  } else if (this.score < 0.5) {
+    return 0.5;
   };
 };
 

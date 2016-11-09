@@ -31,7 +31,7 @@ $(document).ready(function() {
     console.log(arrayOfColors[i].emotion);
     console.log(arrayOfColors[i].score);
     console.log(percentages[i]);
-    console.log(shade.toString());
+    console.log(shade);
     shades.push(shade.toString());
   };
 
