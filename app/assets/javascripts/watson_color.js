@@ -1,82 +1,93 @@
-// use watson data to convert emotional tone & score into color
-// RGB is determined by emotion- first digit of score
-// opacity is determined by second digit of score - measurement of intensity of emotion?
+function Color(emotion, score) {
+  this.emotion = emotion;
+  this.score = score;
+};
 
-// fetches highest ranking emotion
-function fetchHighestRankingEmotion(arrayOfEmotionScores) {
-  var highestRankingEmotion = arrayOfEmotionScores[0];
+Color.prototype.hue = function() {
+  if (this.emotion === 'anger') {
+    return 0;
+  } else if (this.emotion === 'disgust') {
+    return 98;
+  } else if (this.emotion === 'fear') {
+    return 327;
+  } else if (this.emotion === 'joy') {
+    return 55;
+  } else if (this.emotion === 'sadness') {
+    return 240;
+  };
+};
 
-  for (var i = 0; i < arrayOfEmotionScores.length; i++) {
-    if (highestRankingEmotion.score < arrayOfEmotionScores[i].score) {
-      highestRankingEmotion = arrayOfEmotionScores[i];
-      color['length'] = 0.4
+Color.prototype.saturation = function() {
+  if (this.emotion === 'anger') {
+    if (this.score >= 0.75) {
+      return 2;
+    } else if (this.score >= 0.50) {
+      return 0.7;
+    } else if (this.score <= 0.50) {
+      return 0.5;
+    };
+  } else if (this.emotion === 'disgust') {
+    if (this.score >= 0.75) {
+      return 0.8;
+    } else if (this.score >= 0.50) {
+      return 0.7;
+    } else if (this.score <= 0.50) {
+      return 0.5;
+    };
+  } else if (this.emotion === 'fear') {
+    if (this.score >= 0.75) {
+      return 0.9;
+    } else if (this.score >= 0.50) {
+      return 0.7;
+    } else if (this.score <= 0.50) {
+      return 0.5;
+    };
+  } else if (this.emotion === 'joy') {
+    if (this.score >= 0.75) {
+      return 0.9;
+    } else if (this.score >= 0.50) {
+      return 0.7;
+    } else if (this.score <= 0.50) {
+      return 0.5;
+    };
+  } else if (this.emotion === 'sadness') {
+    if (this.score >= 0.75) {
+      return 0.9;
+    } else if (this.score >= 0.50) {
+      return 0.7;
+    } else if (this.score <= 0.50) {
+      return 0.5;
     };
   };
-
-  return highestRankingEmotion;
 };
 
-// color object literal;
-var color = {
-  hue: "",
-  saturation: "",
-  lightness: "",
-  length: "",
-};
-
-// formats hsb for css input
-function formatHSB(emotionObject) {
-  var color = translateEmotionToHSB(emotionObject);
-
-  return d3.hsl(color['hue'], color['saturation'], color['lightness']);
-};
-
-// return specific color based on intensity of score
-function translateEmotionToHSB(emotionObject) {
-
-  if (emotionObject.tone_id === "anger") {
-    color['hue'] = 0;
-
-    adjustIntensity(emotionObject);
-
-    return color;
-  } else if (emotionObject.tone_id === "disgust") {
-    color['hue'] = 98;
-
-    adjustIntensity(emotionObject);
-
-    return color;
-  } else if (emotionObject.tone_id === "fear") {
-    color['hue'] = 327;
-
-    adjustIntensity(emotionObject);
-
-    return color;
-  } else if (emotionObject.tone_id === "joy") {
-    color['hue'] = 55;
-
-    adjustIntensity(emotionObject);
-
-    return color;
-  } else if (emotionObject.tone_id === "sadness") {
-    color['hue'] = 230;
-
-    adjustIntensity(emotionObject);
-
-    return color;
+Color.prototype.lightness = function() {
+  if (this.score >= 0.75) {
+    return 0.8;
+  } else if (this.score >= 0.50) {
+    return 0.7;
+  } else if (this.score <= 0.50) {
+    return 0.4;
   };
 };
 
-// adjust intensity of color
-function adjustIntensity(emotionObject) {
-  if (emotionObject.score >= 0.75) {
-    color['saturation'] = 0.75;
-    color['lightness'] = 0.55;
-  } else if (emotionObject.score < 0.75 && emotionObject.score > 0.50) {
-    color['saturation'] = 0.5;
-    color['lightness'] = 0.9;
-  } else if (emotionObject.score <= 0.50) {
-    color['saturation'] = 0.50;
-    color['lightness'] = 0.75;
-  };
+function createColors(emotionHash) {
+  var arrayOfColors = [];
+  var emotions = ['anger', 'joy', 'fear', 'sadness', 'disgust'];
+
+  Object.keys(emotionHash).forEach(function (key) {
+    if (emotions.includes(key)) {
+      var value = emotionHash[key]
+
+      var newColor = new Color(key, value);
+
+      arrayOfColors.push(newColor);
+    };
+  });
+
+  return arrayOfColors;
+};
+
+function formatHSL(color) {
+  return d3.hsl(color.hue(), color.saturation(), color.lightness());
 };

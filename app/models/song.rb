@@ -31,32 +31,45 @@ class Song < ActiveRecord::Base
 
   def self.strongest_emotion_matches(song_lyric_matches)
     emotion_object_matches = []
-    passage_formatted_emotion = Emotion.format_emotions(Passage.last.emotion)
-    passage_emotion = Emotion.strongest_emotion(passage_formatted_emotion)
+    passage_strongest_emotion = Passage.last.emotion.strongest_emotion
 
     song_lyric_matches.each do |lyric_object|
-      formatted_emotion = Emotion.format_emotions(lyric_object.emotion)
-      lyric_emotion = Emotion.strongest_emotion(formatted_emotion)
+      lyric_strongest_emotion = lyric_object.emotion.strongest_emotion
 
-      if lyric_emotion == passage_emotion
-        emotion_object = Emotion.where(emotionable_id: lyric_object.id)
-        emotion_object_matches.push(emotion_object)
+      if lyric_strongest_emotion == passage_strongest_emotion
+        emotions = Emotion.where(emotionable_id: lyric_object.id)
+        emotions.each do |emotion|
+          emotion_object_matches.push(emotion)
+        end
       end
     end
 
     emotion_object_matches
   end
 
-  def self.chosen_song(emotion_object_matches)
+  def self.chosen_song
+    final_lyric = nil
+    final_song = nil
+
     if Song.most_recent_with_lyrics.length > 1
+
+    lyrics = Lyric.recent
+    song_lyric_matches = Song.match_lyric_to_song(lyrics)
+    emotion_object_matches = Song.strongest_emotion_matches(song_lyric_matches)
+
       values = Emotion.strongest_matches(emotion_object_matches)
-      winning_value = Emotion.compare_matches(values)
-      winning_emotion_object = Emotion.where(joy: winning_value)
-      # This is not working. Trump ruined my focus.
-      winning_lyric_object = winning_emotion_object.lyric
+      final_value = Emotion.compare_matches(values)
+
+      emotion_object_matches.each do |emotion_object|
+        if emotion_object.read_attribute(emotion_object.strongest_emotion) == final_value
+          final_lyric = Lyric.find_by(id: emotion_object.emotionable_id)
+          final_song = final_lyric.song
+        end
+      end
     else
-      # search songs without lyrics (song genres don't have lyrics)
+      final_song = Song.recent.offset(rand(Song.recent.count)).first
     end
+    final_song
   end
 
   def map_emotions(primary_emotion)

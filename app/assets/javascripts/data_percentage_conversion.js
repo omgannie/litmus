@@ -1,27 +1,29 @@
 var percentageConversion = function(emotionData) {
 	var initialData = [];
-	initialData.push(emotionData.anger, emotionData.disgust, emotionData.fear, emotionData.joy, emotionData.sadness);
+	initialData.push(emotionData.joy, emotionData.sadness, emotionData.anger, emotionData.disgust, emotionData.fear);
 
 	var emotionNumbers = []
 	for (var i in initialData) {
     emotionNumbers.push(parseFloat( (initialData[i] * 100), 10));
-	}
+	};
 
 	var total = 0;
 
-	for(var i in emotionNumbers) { 
-		total += emotionNumbers[i]; 
-	}
+	for(var i in emotionNumbers) {
+		total += emotionNumbers[i];
+	};
 
 	var percentages = []
-	for(var i in emotionNumbers) { 
-		percentages.push( ((emotionNumbers[i]/total) * 100).toFixed(0) ); 
-	}
+	for(var i in emotionNumbers) {
+		percentages.push( ((emotionNumbers[i]/total) * 100).toFixed(0) );
+	};
 
 	var formattedPercentages = []
-	for(var i in percentages) { 
-		formattedPercentages.push(percentages[i] + "%") 
-	}
+	for(var i in percentages) {
+		formattedPercentages.push(percentages[i] + "%")
+	};
+
+	return formattedPercentages;
 }
 
 	// var angerNum = parseFloat((emotionData.anger * 100), 10)

@@ -1,13 +1,33 @@
-<div class="results">
+<div class="song">
   <div class="left">
     <h1>Here's the song we chose for you</h1>
     We hope you enjoy it.
   </div>
-  <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-    <p>
-      <%= content_tag :div, class: "emotion", data: {emotion_data: @emotion_data} do %>
-      <% end %>
-    </p>
+  <div class="player">
+    <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="500" height="400" frameborder="0" allowtransparency="true"></iframe>
+  </div>
   <BR>
-  <%= link_to 'Back to Home', passages_path %>
-</div>
+  </div>
+<div class="results">
+  <h1>Insights to the Emotional Data</h1>
+    <%= content_tag :div, class: "emotion-passage", data: {passage_emotion: @passage_emotion, strongest_emotion_from_passage: @strongest_emotion_from_passage
+    } do %>
+      <h2>From Your Passage</h2>
+
+      <div class="left">
+        Based on our calcuations, your text's strongest emotion detected was <%= @strongest_emotion_from_passage %>, which makes up <%= @strongest_emotion_from_passage %> percent of the overall emotional scores.
+      </div>
+    <% end %>
+
+    <%= content_tag :div, class: "emotion-lyrics", data: {lyrics_emotion: @lyrics_emotion, strongest_emotion_from_lyric: @strongest_emotion_from_lyric
+    } do %>
+      <h2>From the Chosen Song</h2>
+
+      <div class="left">
+        The song we have chosen for you is solely based on the data above. By analyzing the emotional tones detected within your text, the overall scores have been categorized by 5 emotions: <B>Joy</B>, <B>Sadness</B>, <B>Anger</B>, <B>Disgust</B>, and <B>Fear</B>.
+      </div>
+    <% end %>
+  </div>
+  <center>
+    <%= link_to 'Back to Home', passages_path %>
+  </center>
