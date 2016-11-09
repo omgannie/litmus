@@ -19,28 +19,41 @@ class Song < ActiveRecord::Base
     song_ids
   end
 
-  def self.match(recent_lyrics)
-    lyrics_to_check = []
+  def self.match_lyric_to_song(recent_lyrics)
+    song_lyric_matches = []
     recent_lyrics.each do |lyric_object|
       if Song.song_ids.include?(lyric_object.song_id)
-        lyrics_to_check.push(lyric_object)
+        song_lyric_matches.push(lyric_object)
       end
     end
-    lyrics_to_check
+    song_lyric_matches
   end
 
-  def self.strongest_emotion_match(lyrics_to_check)
-    lyrics_to_check.each do |lyric|
-      formatted_emotion = Emotion.format_emotions(lyric.emotion)
-      Emotion.strongest_emotion(format_emotions)
+  def self.strongest_emotion_matches(song_lyric_matches)
+    emotion_object_matches = []
+    passage_formatted_emotion = Emotion.format_emotions(Passage.last.emotion)
+    passage_emotion = Emotion.strongest_emotion(passage_formatted_emotion)
+
+    song_lyric_matches.each do |lyric_object|
+      formatted_emotion = Emotion.format_emotions(lyric_object.emotion)
+      lyric_emotion = Emotion.strongest_emotion(formatted_emotion)
+
+      if lyric_emotion == passage_emotion
+        emotion_object = Emotion.where(emotionable_id: lyric_object.id)
+        emotion_object_matches.push(emotion_object)
+      end
     end
+
+    emotion_object_matches
   end
 
-  def self.chosen_song(lyric_objects)
+  def self.chosen_song(emotion_object_matches)
     if Song.most_recent_with_lyrics.length > 1
-      lyric_objects.each do |lyric_object|
-        lyric_object.emotion
-      end
+      values = Emotion.strongest_matches(emotion_object_matches)
+      winning_value = Emotion.compare_matches(values)
+      winning_emotion_object = Emotion.where(joy: winning_value)
+      # This is not working. Trump ruined my focus.
+      winning_lyric_object = winning_emotion_object.lyric
     else
       # search songs without lyrics (song genres don't have lyrics)
     end

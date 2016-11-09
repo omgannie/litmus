@@ -7,6 +7,20 @@ class Emotion < ActiveRecord::Base
     formatted_emotions.max { |first_emotion, second_emotion| first_emotion["score"] <=> second_emotion["score"] }["name"]
   end
 
+  def self.strongest_matches(emotion_objects)
+    format = Emotion.format_emotions(emotion_objects[0])
+    strongest_emotion = Emotion.strongest_emotion(format)
+    values = []
+    emotion_objects.each do |emotion_object|
+      values.push(emotion_object.read_attribute(strongest_emotion).to_f)
+    end
+    values
+  end
+
+  def self.compare_matches(emotion_object_values)
+    emotion_object_values.max { |first_emotion, second_emotion| first_emotion <=> second_emotion }
+  end
+
   def self.format_emotions(emotion_object)
     emotions = []
     emotions.push(
