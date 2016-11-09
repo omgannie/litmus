@@ -102,7 +102,7 @@ class Song < ActiveRecord::Base
   def parse_recommendations(recommendations)
     metadata_list = []
     recommendations["tracks"].each do |track|
-      metadata_list << {"artist" => track["artists"][0]["name"], "track" => track["name"]}
+      metadata_list << {"artist" => track["artists"][0]["name"], "track" => track["name"], "uri" => track["uri"]}
     end
     metadata_list
   end

@@ -11,7 +11,7 @@ class SongsController < ApplicationController
     parsed = @song.parse_recommendations(recommendations)
 
     parsed.each do |song|
-      Song.create(artist_name: song["artist"], song_title: song["track"], genre_id: genre.id)
+      Song.create(artist_name: song["artist"], song_title: song["track"], uri: song["uri"], genre_id: genre.id)
     end
 
     has_lyrics = Song.most_recent_with_lyrics
@@ -24,7 +24,7 @@ class SongsController < ApplicationController
   end
 
   def best_song_match
-    # Song.chosen_song
+    
     redirect_to "/songs/show"
   end
 
@@ -32,5 +32,6 @@ class SongsController < ApplicationController
     @passage = Passage.last
     @passage_emotion = Emotion.find_by(emotionable_id: @passage.id)
     @strongest_emotion_from_passage = @passage.emotion
+    @chosen_song = 
   end
 end
