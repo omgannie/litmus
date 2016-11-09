@@ -129,10 +129,17 @@ form .dropdown {
   float: right;
 }
 
-.emotion {
+.song {
+  overflow: auto;
+}
+
+.results {
   width: 100%;
-  padding: 20px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  line-height: 2;
+}
+
+svg {
+  padding-top: 10px;
 }

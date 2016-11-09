@@ -1,15 +1,27 @@
 // step 1: access emotions data from view
-function fetchEmotionScores() {
-  var emotionData = $('.emotion').data('emotionData');
+function fetchPassageEmotionScores() {
+  var emotionData = $('.emotion-passage').data('passageEmotion');
 
   return emotionData;
 };
 
 // step 1.5: fetch strongest emotion of passage
 function fetchStrongestEmotionFromPassage() {
-  var strongest = $('.emotion').data('strongestEmotionFromPassage');
+  var strongest = $('.emotion-passage').data('strongestEmotionFromPassage');
 
   return strongest;
+};
+
+function fetchLyricsEmotionScores() {
+  var emotionData = $('.emotion-lyrics').data('lyricsEmotion');
+
+  return emotionData;
+};
+
+function fetchStrongestEmotionFromLyrics() {
+  var strongest = $('.emotion-lyrics').data('lyricsEmotion');
+
+  var strongest;
 };
 
 // step 2: change emotions scores into percentages
