@@ -12,16 +12,37 @@ class Song < ActiveRecord::Base
   end
 
   def self.song_ids
-    Song.most_recent_with_lyrics.reject do |song|
-      !song.lyric_id
+    song_ids = []
+    Song.recent.each do |song|
+      song_ids.push(song.id)
+    end
+    song_ids
+  end
+
+  def self.match(recent_lyrics)
+    lyrics_to_check = []
+    recent_lyrics.each do |lyric_object|
+      if Song.song_ids.include?(lyric_object.song_id)
+        lyrics_to_check.push(lyric_object)
+      end
+    end
+    lyrics_to_check
+  end
+
+  def self.strongest_emotion_match(lyrics_to_check)
+    lyrics_to_check.each do |lyric|
+      formatted_emotion = Emotion.format_emotions(lyric.emotion)
+      Emotion.strongest_emotion(format_emotions)
     end
   end
 
-  def self.chosen_song(song_objects)
+  def self.chosen_song(lyric_objects)
     if Song.most_recent_with_lyrics.length > 1
-      song_objects.each do |song_object|
-        song_object
+      lyric_objects.each do |lyric_object|
+        lyric_object.emotion
       end
+    else
+      # search songs without lyrics (song genres don't have lyrics)
     end
   end
 
