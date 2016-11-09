@@ -39,8 +39,10 @@ class Song < ActiveRecord::Base
       lyric_emotion = Emotion.strongest_emotion(formatted_emotion)
 
       if lyric_emotion == passage_emotion
-        emotion_object = Emotion.where(emotionable_id: lyric_object.id)
-        emotion_object_matches.push(emotion_object)
+        emotions = Emotion.where(emotionable_id: lyric_object.id)
+        emotions.each do |emotion|
+          emotion_object_matches.push(emotion)
+        end
       end
     end
 
@@ -51,8 +53,7 @@ class Song < ActiveRecord::Base
     if Song.most_recent_with_lyrics.length > 1
       values = Emotion.strongest_matches(emotion_object_matches)
       winning_value = Emotion.compare_matches(values)
-      winning_emotion_object = Emotion.where(joy: winning_value)
-      # This is not working. Trump ruined my focus.
+      winning_emotion_object = Emotion.find_by(joy: winning_value)
       winning_lyric_object = winning_emotion_object.lyric
     else
       # search songs without lyrics (song genres don't have lyrics)
