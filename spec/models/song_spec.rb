@@ -48,4 +48,7 @@ describe "song model methods" do
     expect(song.parse_recommendations(rec)).to eq([{"artist"=>"Imagine Dragons", "track"=>"Radioactive"}, {"artist"=>"Linkin Park", "track"=>"Numb"}, {"artist"=>"Queen", "track"=>"Bohemian Rhapsody"}, {"artist"=>"Kings of Leon", "track"=>"Use Somebody"}, {"artist"=>"Hoobastank", "track"=>"The Reason"}])
   end
 
+  it "hello"
+  end
+
 end
