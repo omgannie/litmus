@@ -19,7 +19,7 @@ $(document).ready(function() {
   var passageData = fetchPassageEmotionScores();
   var strongestPassage = fetchStrongestEmotionFromPassage(passageData);
 
-  var arrayOfColors = createColors(passageData);
+  var passageColors = createColors(passageData);
 
   var passageShades = [];
   var lyricShades = [];
@@ -32,8 +32,8 @@ $(document).ready(function() {
     console.log(passageColors[i].score);
     console.log(percentages[i]);
     console.log(shade);
-    shades.push(shade.toString());
+    passageShades.push(shade.toString());
   };
 
-  createPassageGradient(arrayOfColors, shades, percentages);
+  createPassageGradient(passageColors, passageShades, percentages);
 });
