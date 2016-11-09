@@ -24,7 +24,10 @@ class SongsController < ApplicationController
   end
 
   def best_song_match
-    # Song.chosen_song
+    best_song_match = Song.chosen_song
+    p "^^^^^^^^^^"
+    p best_song_match
+    best_song_match.update_attributes(chosen_song: true)
     redirect_to "/songs/show"
   end
 

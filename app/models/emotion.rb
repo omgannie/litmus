@@ -15,12 +15,14 @@ class Emotion < ActiveRecord::Base
   end
 
   def self.strongest_matches(emotion_objects)
-    format = Emotion.format_emotions(emotion_objects[0])
-    primary_emotion = Emotion.primary_emotion(format)
+    primary_emotion = Passage.last.emotion.strongest_emotion
+
     values = []
+
     emotion_objects.each do |emotion_object|
       values.push(emotion_object.read_attribute(primary_emotion).to_f)
     end
+
     values
   end
 
