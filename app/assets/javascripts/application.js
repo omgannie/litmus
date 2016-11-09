@@ -16,15 +16,15 @@
 //= require d3
 
 $(document).ready(function() {
-  var emotionData = fetchEmotionScores();
+  var passageData = fetchPassageEmotionScores();
 
-  var strongestPassage = fetchStrongestEmotionFromPassage(emotionData);
+  var strongestPassage = fetchStrongestEmotionFromPassage(passageData);
 
-  var arrayOfColors = createColors(emotionData);
+  var arrayOfColors = createColors(passageData);
 
   var shades = [];
 
-  var percentages = percentageConversion(emotionData);
+  var percentages = percentageConversion(passageData);
 
   for(var i=0; i < arrayOfColors.length; i++) {
     var shade = formatHSL(arrayOfColors[i]);
@@ -35,5 +35,5 @@ $(document).ready(function() {
     shades.push(shade.toString());
   };
 
-  createGradient(arrayOfColors, shades, percentages);
+  createPassageGradient(arrayOfColors, shades, percentages);
 });

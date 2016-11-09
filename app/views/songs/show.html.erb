@@ -1,4 +1,4 @@
-<div class="results">
+<div class="song">
   <div class="left">
     <h1>Here's the song we chose for you</h1>
     We hope you enjoy it.
@@ -6,8 +6,9 @@
   <div class="player">
     <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="500" height="400" frameborder="0" allowtransparency="true"></iframe>
   </div>
-
-  <%= content_tag :div, class: "emotion", data: {emotion_data: @emotion_data, strongest_emotion_from_passage: @strongest_emotion_from_passage
+</div>
+<div class="results">
+  <%= content_tag :div, class: "emotion-passage", data: {emotion_data: @emotion_data, strongest_emotion_from_passage: @strongest_emotion_from_passage
   } do %>
   <% end %>
   <BR>
