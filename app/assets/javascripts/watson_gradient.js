@@ -1,6 +1,6 @@
-function createGradient() {
+function createGradient(colorArray, shadesArray) {
   // Set up SVG container
-  var svg = d3.select('body')
+  var svg = d3.select('.emotion')
               .append('svg')
               .attr('width', 500)
               .attr('height', 100);
@@ -21,33 +21,33 @@ function createGradient() {
 
   //Set the color for the start (anger section) (0%)
   linearGradient.append("stop")
-                .attr("offset", "0%")
-                .attr("stop-color", "red"); //red
+                .attr("offset", "0%") // get percentage
+                .attr("stop-color", shadesArray[0]); // get anger color
 
   //Set the color for the middle left (disgust section) (30%)
   linearGradient.append("stop")
-                .attr("offset", "30%")
-                .attr("stop-color", "green"); //green
+                .attr("offset", '30%') // get percentage
+                .attr("stop-color", shadesArray[1]); //green
 
   //Set color for mid - middle (fear section) (50%)
   linearGradient.append('stop')
                 .attr('offset', '50%')
-                .attr("stop-color", "black")
+                .attr("stop-color", shadesArray[2])
 
   //Set color for middle right (joy) (70%)
   linearGradient.append('stop')
                 .attr('offset', '70%')
-                .attr('stop-color', 'yellow')
+                .attr('stop-color', shadesArray[3])
 
   //Set the color for the end (sadness) (100%)
   linearGradient.append("stop")
-                .attr("offset", "100%")
-                .attr("stop-color", "#8b0000"); //dark blue
+                .attr("offset", "90%")
+                .attr("stop-color", shadesArray[4]); //dark blue
 
   //Draw the rectangle and fill with gradient
   svg.append("rect")
-  	.attr("width", 300)
-  	.attr("height", 20)
+  	.attr("width", "100%")
+  	.attr("height", 100)
   	.style("fill", "url(#linear-gradient)");
 
 };

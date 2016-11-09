@@ -3,11 +3,15 @@
     <h1>Here's the song we chose for you</h1>
     We hope you enjoy it.
   </div>
-  <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-    <p>
-      <%= content_tag :div, class: "emotion", data: {emotion_data: @emotion_data} do %>
-      <% end %>
-    </p>
+  <div class="player">
+    <iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="500" height="400" frameborder="0" allowtransparency="true"></iframe>
+  </div>
+
+  <%= content_tag :div, class: "emotion", data: {emotion_data: @emotion_data, strongest_emotion: @strongest_emotion} do %>
+  <% end %>
   <BR>
-  <%= link_to 'Back to Home', passages_path %>
+
+  <center>
+    <%= link_to 'Back to Home', passages_path %>
+  </center>
 </div>

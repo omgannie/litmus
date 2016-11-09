@@ -19,5 +19,16 @@
 // });
 
 $(document).ready(function() {
-  console.log('ready, motherfucker');
+  var emotionData = fetchEmotionScores();
+
+  var strongest = fetchStrongestEmotion(emotionData);
+
+  var arrayOfColors = createColors(emotionData);
+  var shades = [];
+  for(var i=0; i < arrayOfColors.length; i++) {
+    var shade = formatHSB(arrayOfColors[i]);
+    shades.push(shade);
+  };
+
+  createGradient(arrayOfColors, shades);
 });

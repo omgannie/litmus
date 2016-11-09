@@ -21,5 +21,6 @@ class SongsController < ApplicationController
   def show
     @passage = Passage.last
     @emotion_data = Emotion.find_by(emotionable_id: @passage.id)
+    @strongest_emotion = @passage.emotion
   end
 end
