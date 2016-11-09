@@ -11,9 +11,9 @@ module EmotionConcern
   end
 
   module ClassMethods
-    def emotion_tone(analysis)
+    def emotion_tone(watson_object)
       emotions = []
-      tones = analysis["document_tone"]["tone_categories"][0]["tones"]
+      tones = watson_object["document_tone"]["tone_categories"][0]["tones"]
 
       tones.each do |tone|
         emotions << {"name" => tone["tone_name"], "score" => tone["score"]}
@@ -21,10 +21,10 @@ module EmotionConcern
       emotions
     end
 
-    def format_watson_data(watson)
+    def format_watson_data(watson_emotion_tone)
       watson_database = Hash.new
 
-      watson.each do |emotion|
+      watson_emotion_tone.each do |emotion|
         emotion.each do |k, v|
           if v == "Joy"
             watson_database[:joy] = emotion["score"]
@@ -39,12 +39,7 @@ module EmotionConcern
           end
         end
       end
-
       watson_database
-    end
-
-    def primary_emotion(emotion_list)
-      emotion_list.max { |emotion_1, emotion_2| emotion_1["score"] <=> emotion_2["score"] }["name"]
     end
   end
 end
