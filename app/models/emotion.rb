@@ -1,4 +1,6 @@
 class Emotion < ActiveRecord::Base
+  scope :recent, -> { order("created_at DESC").limit(5) }
+
   validates :joy, :sadness, :anger, :disgust, :fear, :emotionable_id, :emotionable_type, presence: true
 
   belongs_to  :emotionable, polymorphic: true
@@ -29,10 +31,10 @@ class Emotion < ActiveRecord::Base
   def self.format_emotions(emotion_object)
     emotions = []
     emotions.push(
-      { "name" => "joy", "score" => emotion_object.joy },
-      { "name" => "disgust", "score" => emotion_object.disgust },
-      { "name" => "anger",  "score" => emotion_object.anger },
-      { "name" => "fear", "score" => emotion_object.fear },
-      { "name" => "sadness", "score" => emotion_object.sadness })
+      { "name" => "joy", "score" => emotion_object.joy.to_f },
+      { "name" => "disgust", "score" => emotion_object.disgust.to_f },
+      { "name" => "anger",  "score" => emotion_object.anger.to_f },
+      { "name" => "fear", "score" => emotion_object.fear.to_f },
+      { "name" => "sadness", "score" => emotion_object.sadness.to_f })
   end
 end
