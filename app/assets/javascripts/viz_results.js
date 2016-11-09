@@ -13,13 +13,12 @@ function fetchStrongestEmotion() {
 };
 
 // step 2: change emotions scores into percentages
-function convertToPercentages() {
-  // Sayam is working on this
-};
+// function is in data_percentage_conversion.js
 
 // step 3: get specific hue/saturation/brightness of emotion
-
+// function is in watson_color.js
 
 // step 4: create gradient - use percentages to set length, use specific color to set actual color of gradient section
+// function is in watson_gradient.js
 
 // step 5: append to view!!!!

@@ -13,7 +13,7 @@ Color.prototype.hue = function() {
   } else if (this.emotion === 'joy') {
     return 55;
   } else if (this.emotion === 'sadness') {
-    return 230;
+    return 240;
   };
 };
 
@@ -35,10 +35,6 @@ Color.prototype.lightness = function() {
   } else if (this.score <= 0.50) {
     return 0.4;
   };
-};
-
-Color.prototype.length = function() {
-// SAYAM
 };
 
 function createColors(emotionHash) {

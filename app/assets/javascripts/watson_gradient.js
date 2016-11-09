@@ -1,4 +1,6 @@
-function createGradient(colorArray, shadesArray) {
+function createGradient(colorArray, shadesArray, percentages) {
+
+
   // Set up SVG container
   var svg = d3.select('.emotion')
               .append('svg')
@@ -17,32 +19,47 @@ function createGradient(colorArray, shadesArray) {
   .attr("x1", "0%")
   .attr("y1", "0%")
   .attr("x2", "100%")
-  .attr("y2", "0%");
+  .attr("y2", "0%")
+  .attr("spreadMethod", "pad");
 
-  //Set the color for the start (anger section) (0%)
+  // start at 0
   linearGradient.append("stop")
-                .attr("offset", "0%") // get percentage
-                .attr("stop-color", shadesArray[0]); // get anger color
-
-  //Set the color for the middle left (disgust section) (30%)
+                  .attr("offset", '0%')
+                  .attr("stop-color", shadesArray[0]);
   linearGradient.append("stop")
-                .attr("offset", '30%') // get percentage
-                .attr("stop-color", shadesArray[1]); //green
-
-  //Set color for mid - middle (fear section) (50%)
-  linearGradient.append('stop')
-                .attr('offset', '50%')
-                .attr("stop-color", shadesArray[2])
-
-  //Set color for middle right (joy) (70%)
-  linearGradient.append('stop')
-                .attr('offset', '70%')
-                .attr('stop-color', shadesArray[3])
-
-  //Set the color for the end (sadness) (100%)
+                  .attr("offset", percentages[0])
+                  .attr("stop-color", shadesArray[1]);
   linearGradient.append("stop")
-                .attr("offset", "90%")
-                .attr("stop-color", shadesArray[4]); //dark blue
+                  .attr("offset", percentages[1])
+                  .attr("stop-color", shadesArray[2]);
+  // linearGradient.append("stop")
+  //                 .attr("offset", percentages[2])
+  //                 .attr("stop-color", shadesArray[3]);
+  // linearGradient.append("stop")
+  //                 .attr("offset", percentages[3])
+  //                 .attr("stop-color", shadesArray[4]);
+  // linearGradient.append("stop")
+  //                 .attr("offset", percentages[4])
+  //                 .attr("stop-color", shadesArray[4]);
+
+  // linearGradient.append("stop")
+  //                 .attr("offset", '0%')
+  //                 .attr("stop-color", shadesArray[0]);
+  // linearGradient.append("stop")
+  //                 .attr("offset", "50%")
+  //                 .attr("stop-color", shadesArray[1]);
+  // linearGradient.append("stop")
+  //                 .attr("offset", "50%")
+  //                 .attr("stop-color", shadesArray[2]);
+  // linearGradient.append("stop")
+  //                 .attr("offset", percentages[2])
+  //                 .attr("stop-color", shadesArray[3]);
+  // linearGradient.append("stop")
+  //                 .attr("offset", percentages[3])
+  //                 .attr("stop-color", shadesArray[4]);
+  // linearGradient.append("stop")
+  //                 .attr("offset", percentages[4])
+  //                 .attr("stop-color", shadesArray[4]);
 
   //Draw the rectangle and fill with gradient
   svg.append("rect")
