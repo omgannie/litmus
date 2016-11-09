@@ -17,3 +17,7 @@
 // $(document).ready(function(){
 //   ajaxFormHandler();
 // });
+
+$(document).ready(function() {
+  console.log('ready, motherfucker');
+});
