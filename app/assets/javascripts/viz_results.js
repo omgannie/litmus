@@ -6,8 +6,8 @@ function fetchEmotionScores() {
 };
 
 // step 1.5: fetch strongest emotion of passage
-function fetchStrongestEmotion() {
-  var strongest = $('.emotion').data('strongestEmotion');
+function fetchStrongestEmotionFromPassage() {
+  var strongest = $('.emotion').data('strongestEmotionFromPassage');
 
   return strongest;
 };

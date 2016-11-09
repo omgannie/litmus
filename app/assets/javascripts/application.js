@@ -18,7 +18,7 @@
 $(document).ready(function() {
   var emotionData = fetchEmotionScores();
 
-  var strongest = fetchStrongestEmotion(emotionData);
+  var strongestPassage = fetchStrongestEmotionFromPassage(emotionData);
 
   var arrayOfColors = createColors(emotionData);
 
