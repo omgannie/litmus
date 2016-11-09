@@ -19,21 +19,21 @@ Color.prototype.hue = function() {
 
 Color.prototype.saturation = function() {
   if (this.score >= 0.75) {
-    return 0.75;
-  } else if (this.score > 0.50) {
-    return 0.5;
+    return 1;
+  } else if (this.score >= 0.50) {
+    return 0.7;
   } else if (this.score <= 0.50) {
-    return 0.50;
+    return 0.5;
   };
 };
 
 Color.prototype.lightness = function() {
   if (this.score >= 0.75) {
-    return 0.55;
-  } else if (this.score > 0.50) {
-    return 0.9;
+    return 1;
+  } else if (this.score >= 0.50) {
+    return 0.7;
   } else if (this.score <= 0.50) {
-    return 0.75;
+    return 0.4;
   };
 };
 
@@ -58,6 +58,6 @@ function createColors(emotionHash) {
   return arrayOfColors;
 };
 
-function formatHSB(color) {
+function formatHSL(color) {
   return d3.hsl(color.hue(), color.saturation(), color.lightness());
 };

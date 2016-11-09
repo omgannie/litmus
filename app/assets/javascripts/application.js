@@ -25,8 +25,11 @@ $(document).ready(function() {
 
   var arrayOfColors = createColors(emotionData);
   var shades = [];
+
   for(var i=0; i < arrayOfColors.length; i++) {
-    var shade = formatHSB(arrayOfColors[i]);
+    var shade = formatHSL(arrayOfColors[i]);
+    console.log(arrayOfColors[i].emotion);
+    console.log(shade);
     shades.push(shade);
   };
 
