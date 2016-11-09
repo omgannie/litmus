@@ -20,7 +20,7 @@ class Emotion < ActiveRecord::Base
     values = []
 
     emotion_objects.each do |emotion_object|
-      values.push(emotion_object.read_attribute(primary_emotion).to_f)
+      values.push(emotion_object.read_attribute(primary_emotion))
     end
 
     values
@@ -33,10 +33,10 @@ class Emotion < ActiveRecord::Base
   def self.format_emotions(emotion_object)
     emotions = []
     emotions.push(
-      { "name" => "joy", "score" => emotion_object.joy.to_f },
-      { "name" => "disgust", "score" => emotion_object.disgust.to_f },
-      { "name" => "anger",  "score" => emotion_object.anger.to_f },
-      { "name" => "fear", "score" => emotion_object.fear.to_f },
-      { "name" => "sadness", "score" => emotion_object.sadness.to_f })
+      { "name" => "joy", "score" => emotion_object.joy },
+      { "name" => "disgust", "score" => emotion_object.disgust },
+      { "name" => "anger",  "score" => emotion_object.anger },
+      { "name" => "fear", "score" => emotion_object.fear },
+      { "name" => "sadness", "score" => emotion_object.sadness })
   end
 end
