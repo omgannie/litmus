@@ -5,10 +5,10 @@ language: ruby
 cache: bundler
 sudo: false
 rvm:
-  - 2.0.0
+  - 2.3.0
 services:
   - postgresql
 script:
-  - bundle exec rspec
+  - "bundle exec rspec"
 
 
