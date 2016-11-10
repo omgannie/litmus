@@ -48,7 +48,7 @@ $(document).ready(function() {
 
   createLyricsGradient(lyricsColors, lyricsShades, lyricsPercentages);
 
-  addColorsToLegend(lyricsShades);
+  addColorsToLegend(passageShades);
 });
 
 function addColorsToLegend(colorsArray) {
