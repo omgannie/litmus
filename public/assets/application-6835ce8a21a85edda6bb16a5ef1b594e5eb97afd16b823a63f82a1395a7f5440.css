@@ -10,9 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 @import url('https://fonts.googleapis.com/css?family=Karla|Unica+One');
 
 body {
@@ -58,7 +59,6 @@ footer {
   font-size: 14px;
   bottom: 0;
   margin: 0 auto;
-  display: block;
 }
 
 textarea {
@@ -147,44 +147,4 @@ svg {
 
 .emotion-passage, .emotion-lyrics {
   overflow: auto;
-}
-
-.grid {
-  background: white;
-  margin: 0 0 $pad 0;
-
-  &:after {
-    /* Or @extend clearfix */
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-[class*='col-'] {
-  float: left;
-  padding-right: $pad;
-  .grid &:last-of-type {
-    padding-right: 0;
-  }
-}
-
-.col-1-3 {
-  width: 33.33%;
-}
-
-.hidden {
-  display: hidden;
-  visibility: hidden;
-}
-
-.center {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.module {
-  font-size: 20px;
-  text-align: center;
 }

@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
 
   def search_song
-    genre_id = params[:genre].to_i
+    genre_id = params[:genre_id].to_i
     genre = Genre.find_by(id: genre_id)
 
     emotion = Passage.last.emotion.strongest_emotion.capitalize!
