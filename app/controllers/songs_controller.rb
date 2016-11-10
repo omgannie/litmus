@@ -34,5 +34,7 @@ class SongsController < ApplicationController
     @passage_emotion = Emotion.find_by(emotionable_id: @passage.id)
     @strongest_emotion_from_passage = @passage.emotion
     @the_one_uri = Song.chosen_song.uri
+    lyric = Song.chosen_song.lyric
+    @lyrics_emotion = Emotion.find_by(emotionable_id: lyric.id)
   end
 end

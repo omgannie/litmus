@@ -15,12 +15,14 @@ var percentageConversion = function(emotionData) {
 
 	var percentages = []
 	for(var i in emotionNumbers) {
-		percentages.push( ((emotionNumbers[i]/total) * 100).toFixed(0) );
+		percentages.push( ((emotionNumbers[i]/total) * 100));
 	};
+
+	// .toFixed(0)
 
 	var formattedPercentages = []
 	for(var i in percentages) {
-		formattedPercentages.push(percentages[i] + "%")
+		formattedPercentages.push(percentages[i])
 	};
 
 	return formattedPercentages;
