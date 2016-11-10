@@ -15,20 +15,32 @@
     <h2>From Your Passage</h2>
 
     <div class="left">
-      Based on our calcuations, your text's strongest emotion detected was <%= @strongest_emotion_from_passage %>, which makes up <%= @strongest_emotion_from_passage %> percent of the overall emotional scores.
+      Based on our calcuations, your text's strongest emotion detected was <B><%= @strongest_emotion_from_passage %></b>, which makes up <B><%= @strongest_emotion_passage_score %>%</B> of the overall emotional scores.
     </div>
   <% end %>
   <BR>
-  <%= content_tag :div, class: "emotion-lyrics", data: {lyrics_emotion: @lyrics_emotion
+  <%= content_tag :div, class: "emotion-lyrics", data: {lyrics_emotion: @lyrics_emotion, strongest_emotion_from_lyrics: @strongest_emotion_from_lyrics, strongest_emotion_lyrics_score: @strongest_emotion_lyrics_score
   } do %>
 
     <% if @lyrics_emotion %>
+    <h2>About the Song</h2>
+    The song we have chosen for you is solely based on the data above.
       <div class="left">
-        <h2>About the Song</h2>
-        The song we have chosen for you is solely based on the data above. By analyzing the emotional tones detected within your text, the overall scores have been categorized by 5 emotions: Joy, Sadness, Anger, Disgust, and Fear.
+        By analyzing the emotional tones detected within your text, the overall scores have been categorized by 5 emotions: Joy, Sadness, Anger, Disgust, and Fear. The strongest emotion present from the chosen song is <B><%= @strongest_emotion_from_lyrics %></B> with a score of <B><%= @strongest_emotion_lyrics_score %>%</B>.
       </div>
     <% end %>
   <% end %>
+
+  <div class="color-legend module">
+    <h3>Color Legend</h3>
+    <ul class="colors">
+      <li id="joy">Joy</li>
+      <li id="sadness">Sadness</li>
+      <li id="anger">Anger</li>
+      <li id="disgust">Disgust</li>
+      <li id="fear">Fear</li>
+    </ul>
+  </div>
 </div>
 
 <center>

@@ -128,6 +128,7 @@ form .dropdown {
 
 .player {
   float: right;
+  margin-top: 50px;
 }
 
 .song {
@@ -187,4 +188,12 @@ svg {
 .module {
   font-size: 20px;
   text-align: center;
+}
+
+ul.colors li {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  margin: 10px;
+  display: inline;
 }
