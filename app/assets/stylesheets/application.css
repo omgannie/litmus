@@ -15,9 +15,11 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Karla|Unica+One');
 
+
+
 body {
-  background-color: #192933;
-  background-image: linear-gradient(#192933, #144546);
+  background-color: #2d2d2d;
+  /*background-image: linear-gradient(#192933, #144546);*/
   font-family: 'Karla', sans-serif;
   color: #CCDBDC;
   background-size: cover;
@@ -38,6 +40,7 @@ a:hover {
 .container {
   width: 100%;
   max-width: 800px;
+  max-height: 450px;
   margin: 0 auto;
 }
 
@@ -49,6 +52,7 @@ a:hover {
 
 .nav h1 {
   font-size: 80px;
+  margin: 40px;
 }
 
 footer {
@@ -97,18 +101,21 @@ option {
 }
 
 input[type="submit"] {
-  padding: 30px;
+  padding: 8px;
   font-family: 'Karla', sans-serif;
-  font-size: 30px;
-  background-color: #1B5B5D;
-  color: #CCDBDC;
-  border: 0px;
-  border-radius: 20px;
+  font-size: 12px;
+  background: none;
+  border: 2px solid white;
+  border-color: #fff;
+  color: #fff;
   transition: 0.3s all ease-in;
+  margin-top: 20px;
+
 }
 
 input[type="submit"]:hover {
-  background-color: #247D7F;
+  background-color: #FD7200;
+  border: 2px solid #FD7200;
   color: #fff;
   top: -5px;
   right: 10px;
@@ -146,4 +153,9 @@ svg {
 
 .emotion-passage, .emotion-lyrics {
   overflow: auto;
+}
+
+.passage-form {
+  float: right;
+  margin: 30px;
 }
