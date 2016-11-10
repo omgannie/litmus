@@ -21,12 +21,14 @@
   <BR>
   <%= content_tag :div, class: "emotion-lyrics", data: {lyrics_emotion: @lyrics_emotion
   } do %>
-
-    <div class="left">
-      <h2>About the Song</h2>
-      The song we have chosen for you is solely based on the data above. By analyzing the emotional tones detected within your text, the overall scores have been categorized by 5 emotions: Joy, Sadness, Anger, Disgust, and Fear.
-    </div>
+  
+    <% if @lyrics_emotion %>
+      <div class="left">
+        <h2>About the Song</h2>
+        The song we have chosen for you is solely based on the data above. By analyzing the emotional tones detected within your text, the overall scores have been categorized by 5 emotions: Joy, Sadness, Anger, Disgust, and Fear.
+      </div>
     <% end %>
+  <% end %>
 </div>
 
 <center>
