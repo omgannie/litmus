@@ -24,41 +24,22 @@ function createPassageGradient(colorArray, shadesArray, percentages) {
   // start at 0
   linearGradient.append("stop")
                   .attr("offset", '0%')
-                  .attr("stop-color", shadesArray[0]);
+                  .attr("stop-color", shadesArray[0]); // yellow
   linearGradient.append("stop")
-                  .attr("offset", percentages[0])
+                  .attr("offset", percentages[0] + "%") // start at 23%
                   .attr("stop-color", shadesArray[1]);
   linearGradient.append("stop")
-                  .attr("offset", percentages[1])
+                  .attr("offset", (percentages[0] + percentages[1]) + "%") // start at 29%
                   .attr("stop-color", shadesArray[2]);
   linearGradient.append("stop")
-                  .attr("offset", percentages[2])
+                  .attr("offset", (percentages[0] + percentages[1] + percentages[2]) + "%")
                   .attr("stop-color", shadesArray[3]);
   linearGradient.append("stop")
-                  .attr("offset", percentages[3])
+                  .attr("offset", (percentages[0] + percentages[1] + percentages[2] + percentages[3]) + "%")
                   .attr("stop-color", shadesArray[4]);
   linearGradient.append("stop")
-                  .attr("offset", percentages[4])
+                  .attr("offset", '100%')
                   .attr("stop-color", shadesArray[4]);
-
-  // linearGradient.append("stop")
-  //                 .attr("offset", '0%')
-  //                 .attr("stop-color", shadesArray[0]);
-  // linearGradient.append("stop")
-  //                 .attr("offset", "50%")
-  //                 .attr("stop-color", shadesArray[1]);
-  // linearGradient.append("stop")
-  //                 .attr("offset", "50%")
-  //                 .attr("stop-color", shadesArray[2]);
-  // linearGradient.append("stop")
-  //                 .attr("offset", percentages[2])
-  //                 .attr("stop-color", shadesArray[3]);
-  // linearGradient.append("stop")
-  //                 .attr("offset", percentages[3])
-  //                 .attr("stop-color", shadesArray[4]);
-  // linearGradient.append("stop")
-  //                 .attr("offset", percentages[4])
-  //                 .attr("stop-color", shadesArray[4]);
 
   //Draw the rectangle and fill with gradient
   svg.append("rect")
@@ -102,21 +83,21 @@ function createLyricsGradient(colorArray, shadesArray, percentages) {
   // start at 0
   linearGradient.append("stop")
                   .attr("offset", '0%')
-                  .attr("stop-color", shadesArray[0]);
+                  .attr("stop-color", shadesArray[0]); // yellow
   linearGradient.append("stop")
-                  .attr("offset", percentages[0])
+                  .attr("offset", percentages[0] + "%") // start at 23%
                   .attr("stop-color", shadesArray[1]);
   linearGradient.append("stop")
-                  .attr("offset", percentages[1])
+                  .attr("offset", (percentages[0] + percentages[1]) + "%") // start at 29%
                   .attr("stop-color", shadesArray[2]);
   linearGradient.append("stop")
-                  .attr("offset", percentages[2])
+                  .attr("offset", (percentages[0] + percentages[1] + percentages[2]) + "%")
                   .attr("stop-color", shadesArray[3]);
   linearGradient.append("stop")
-                  .attr("offset", percentages[3])
+                  .attr("offset", (percentages[0] + percentages[1] + percentages[2] + percentages[3]) + "%")
                   .attr("stop-color", shadesArray[4]);
   linearGradient.append("stop")
-                  .attr("offset", percentages[4])
+                  .attr("offset", '100%')
                   .attr("stop-color", shadesArray[4]);
 
   //Draw the rectangle and fill with gradient

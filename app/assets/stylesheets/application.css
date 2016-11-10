@@ -141,5 +141,9 @@ form .dropdown {
 }
 
 svg {
-  padding-top: 10px;
+  padding-top: 20px;
+}
+
+.emotion-passage, .emotion-lyrics {
+  overflow: auto;
 }
