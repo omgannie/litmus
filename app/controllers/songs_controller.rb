@@ -1,8 +1,6 @@
 class SongsController < ApplicationController
 
   def search_song
-    p "00000000000000"
-    p params
     genre_id = params[:genre_id].to_i
     genre = Genre.find_by(id: genre_id)
 
