@@ -27,11 +27,6 @@ $(document).ready(function() {
 
   for(var i=0; i < passageColors.length; i++) {
     var shade = formatHSL(passageColors[i]);
-
-    console.log(passageColors[i].emotion);
-    console.log(passageColors[i].score);
-    console.log(passagePercentages[i]);
-    console.log(shade.toString());
     passageShades.push(shade.toString());
   };
 
@@ -46,15 +41,34 @@ $(document).ready(function() {
 
   var lyricsPercentages = percentageConversion(lyricsData);
 
-  console.log('===================LYRICS =================');
   for(var i=0; i < lyricsColors.length; i++) {
     var shade = formatHSL(lyricsColors[i]);
-    console.log(lyricsColors[i].emotion);
-    console.log(lyricsColors[i].score);
-    console.log(lyricsPercentages[i]);
-    console.log(shade.toString());
     lyricsShades.push(shade.toString());
   };
 
   createLyricsGradient(lyricsColors, lyricsShades, lyricsPercentages);
+
+  addColorsToLegend(lyricsShades);
 });
+
+function addColorsToLegend(colorsArray) {
+  // add joy color
+  d3.select('li#joy')
+    .style('background-color', colorsArray[0].toString());
+
+  // add sadness
+  d3.select('li#sadness')
+    .style('background-color', colorsArray[1].toString());
+
+  // add anger
+  d3.select('li#anger')
+    .style('background-color', colorsArray[2].toString());
+
+  // add disgust
+  d3.select('li#disgust')
+    .style('background-color', colorsArray[3].toString());
+
+  // add fear
+  d3.select('li#fear')
+    .style('background-color', colorsArray[4].toString());
+}
