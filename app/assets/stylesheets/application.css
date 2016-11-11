@@ -14,10 +14,12 @@
  *= require_self
  */
 @import url('https://fonts.googleapis.com/css?family=Karla|Unica+One');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
 
 body {
-  background-color: #192933;
-  background-image: linear-gradient(#192933, #144546);
+  background-color: #2d2d2d;
+  /*background-image: linear-gradient(#192933, #144546);*/
   font-family: 'Karla', sans-serif;
   color: #CCDBDC;
   background-size: cover;
@@ -37,7 +39,8 @@ a:hover {
 
 .container {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
+  max-height: 450px;
   margin: 0 auto;
 }
 
@@ -49,6 +52,7 @@ a:hover {
 
 .nav h1 {
   font-size: 80px;
+  margin: 40px 40px 25px;
 }
 
 footer {
@@ -62,14 +66,14 @@ footer {
 }
 
 textarea {
-  margin: 30px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 16px;
   font-family: 'Karla', sans-serif;
-  border: 0px;
+  /*border: 0px;*/
   color: black;
   right: 0;
+  border: 2px solid #fff;
 }
 
 textarea:focus {
@@ -98,26 +102,44 @@ option {
 }
 
 input[type="submit"] {
-  padding: 30px;
+  /*padding: 8px;*/
   font-family: 'Karla', sans-serif;
-  font-size: 30px;
-  background-color: #1B5B5D;
-  color: #CCDBDC;
-  border: 0px;
-  border-radius: 20px;
+  font-size: 15pt;
+  font-weight: bold;
+  background: none;
+  border: 2px solid #fff;
+  /*border-color: #fff;*/
+  color: #fff;
   transition: 0.3s all ease-in;
+  margin-top: 20px;
+  padding: 5px;
 }
 
 input[type="submit"]:hover {
-  background-color: #247D7F;
+  background-color: #FD7200;
+  border: 2px solid #FD7200;
   color: #fff;
-  top: -5px;
-  right: 10px;
+  /*top: -5px;*/
+  /*right: 10px;*/
 }
 
 .left {
-  float: left;
-  width: 300px;
+  /*float: left;*/
+  width: 100%;
+  display: block;
+  /*overflow: hidden;*/
+}
+
+.page-header {
+  font-size: 24pt;
+  color: #fff;
+}
+
+.analyze-copy {
+  font-size: 22pt;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #fff;
 }
 
 form .dropdown {
@@ -148,6 +170,11 @@ svg {
 
 .emotion-passage, .emotion-lyrics {
   overflow: auto;
+}
+
+.passage-form {
+  margin-top: 25px;
+  text-align: center;
 }
 
 .grid {
@@ -197,3 +224,37 @@ ul.colors li {
   margin: 10px;
   display: inline;
 }
+
+.form-control {
+  width: 80%;
+  border: 2px solid #fff;
+}
+
+/*.pulse-button {
+  font-family: 'Karla', sans-serif;
+  font-size: 15pt;
+  font-weight: bold;
+  background: none;
+  border: 1px solid #fff;
+  border-color: #fff;
+  color: #fff;
+  transition: 0.3s all ease-in;
+  margin-top: 20px;
+  padding: 5px;
+  position: relative;
+  box-shadow: 0 0 0 0 rgba(253, 114, 0, 0.7);
+  cursor: pointer;
+  -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+.pulse-button:hover 
+{
+  -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+}
+
+@-webkit-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(253, 114, 0, 0);}}
+@-moz-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(253, 114, 0, 0);}}
+@-ms-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(253, 114, 0, 0);}}
+@keyframes pulse {to {box-shadow: 0 0 0 20px rgba(253, 114, 0, 0);}}*/

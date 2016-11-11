@@ -1,0 +1,16 @@
+<div class="passage">
+  <div class="left">
+    <h1 class="page-header">Passage to Analyze</h1>
+    <div class="analyze-copy">
+      Enter an excerpt of your choosing. We will analyze the emotional tones detected and provide songs to match the mood.
+    </div>
+  </div>
+  <div class="passage-form">
+    <%= form_for @passage do |f| %>
+      <%= f.text_area(:body, class: "form-control", size: "50x15") %>
+      <br>
+      <%= f.submit "Check Emotional Pulse", class: "submit-passage", align: "right" %>
+    <% end %>
+  </div>
+  <br><br>
+</div>

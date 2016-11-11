@@ -19,7 +19,7 @@ Genre.create(name: "Easy-Listening", categories: ["acoustic", "chill", "new-age"
 Genre.create(name: "Electronic", categories: ["ambient", "dance", "electronic", "house", "trance"], has_lyrics: false)
 Genre.create(name: "European", categories: ["british", "french", "german", "spanish", "swedish"], has_lyrics: false)
 Genre.create(name: "Folk", categories: ["folk", "singer-songwriter"])
-Genre.create(name: "Hip-hop", categories: ["hip-hop", "reggae", "reggaeton"])
+Genre.create(name: "Hip-hop", categories: ["hip-hop"])
 Genre.create(name: "House", categories: ["chicago-house", "deep-house", "house", "progressive-house"])
 Genre.create(name: "Indie", categories: ["indie", "indie-pop"])
 Genre.create(name: "Japanese", categories: ["j-dance", "j-pop", "j-rock"], has_lyrics: false)
