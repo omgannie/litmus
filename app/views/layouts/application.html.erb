@@ -2,14 +2,14 @@
 <html>
 <head>
   <title>Litmus</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div class="nav animated fadeInDown">
-    <h1><%= link_to image_tag("litmus-logo-medium.png", :width => 400), root_path %></h1>
+    <h1><%= link_to image_tag("litmus-logo-medium.png", :height => 75), root_path %></h1>
   </div>
   <div class="container animated fadeInUp">
     <%= yield %>
