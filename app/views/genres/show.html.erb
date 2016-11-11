@@ -1,10 +1,45 @@
-<div class="select-genre">
-    <div class="left">
-      <h1>Chime In</h1>
-      We're going to fine-tune the passage you submitted. In order to find the ideal music to your ears, please select a music genre. We don't want to strike a false note, so it's your turn to call the tune.
+<div class="choose-genre">
+  <h1>Chime In</h1>
+    <p>We're going to fine-tune the passage you submitted. In order to find the ideal music to your ears, please select a music genre. We don't want to strike a false note, so it's your turn to call the tune.</p>
+</div>
+
+<div class="center">
+  <div class="grid">
+    <div class="col-1-3">
+      <div class="module">
+        <% @first.each do |genre| %>
+          <br>
+          <%= link_to("#{genre.name}", controller: 'songs', action: 'search_song', :genre_id => genre.id) %>
+          <br>
+        <% end %>
+      </div>
     </div>
-    <%= form_tag( "/songs/search_song", method: :get, class: "dropdown") do %>
-      <%= select_tag(:genre, options_for_select(@genre_options)) %>
-      <%= submit_tag "Select", name: nil, class: 'btn' %>
+
+    <div class="col-1-3">
+      <div class="module">
+        <% @second.each do |genre| %>
+          <br>
+          <%= link_to("#{genre.name}", controller: 'songs', action: 'search_song', :genre_id => genre.id) %>
+          <br>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-1-3">
+      <div class="module">
+        <% @third.each do |genre| %>
+          <br>
+          <%= link_to("#{genre.name}", controller: 'songs', action: 'search_song', :genre_id => genre.id) %>
+          <br>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="select-genre">
+    <%= form_tag( "/songs/search_song", method: :get ) do %>
+      <%= submit_tag "", name: nil, class: 'hidden' %>
     <% end %>
 </div>

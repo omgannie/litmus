@@ -10,16 +10,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 @import url('https://fonts.googleapis.com/css?family=Karla|Unica+One');
 
-
-
 body {
-  background-color: #2d2d2d;
-  /*background-image: linear-gradient(#192933, #144546);*/
+  background-color: #192933;
+  background-image: linear-gradient(#192933, #144546);
   font-family: 'Karla', sans-serif;
   color: #CCDBDC;
   background-size: cover;
@@ -40,7 +39,6 @@ a:hover {
 .container {
   width: 100%;
   max-width: 800px;
-  max-height: 450px;
   margin: 0 auto;
 }
 
@@ -52,7 +50,6 @@ a:hover {
 
 .nav h1 {
   font-size: 80px;
-  margin: 40px;
 }
 
 footer {
@@ -66,6 +63,7 @@ footer {
 }
 
 textarea {
+  margin: 30px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 16px;
@@ -101,20 +99,18 @@ option {
 }
 
 input[type="submit"] {
-  /*padding: 8px;*/
+  padding: 30px;
   font-family: 'Karla', sans-serif;
-  font-size: 13px;
-  background: none;
-  border: 2px solid white;
-  border-color: #fff;
-  color: #fff;
+  font-size: 30px;
+  background-color: #1B5B5D;
+  color: #CCDBDC;
+  border: 0px;
+  border-radius: 20px;
   transition: 0.3s all ease-in;
-  margin-top: 20px;
 }
 
 input[type="submit"]:hover {
-  background-color: #FD7200;
-  border: 2px solid #FD7200;
+  background-color: #247D7F;
   color: #fff;
   top: -5px;
   right: 10px;
@@ -133,7 +129,6 @@ form .dropdown {
 
 .player {
   float: right;
-  margin-top: 50px;
 }
 
 .song {
@@ -153,11 +148,6 @@ svg {
 
 .emotion-passage, .emotion-lyrics {
   overflow: auto;
-}
-
-.passage-form {
-  float: right;
-  margin: 30px;
 }
 
 .grid {
@@ -198,12 +188,4 @@ svg {
 .module {
   font-size: 20px;
   text-align: center;
-}
-
-ul.colors li {
-  width: 100px;
-  height: 100px;
-  padding: 20px;
-  margin: 10px;
-  display: inline;
 }
