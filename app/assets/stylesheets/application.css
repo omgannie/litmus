@@ -217,6 +217,9 @@ svg {
 }
 
 .color-legend {
+  position: fixed;
+  top: 0;
+  left: 0;
   text-align: center;
   padding: 10px;
   line-height: 1.5;
@@ -224,10 +227,9 @@ svg {
 
 ul.colors li {
   width: 100px;
-  height: 100px;
   padding: 20px;
   margin: 10px;
-  display: inline;
+  display: block;
 }
 
 .form-control {
