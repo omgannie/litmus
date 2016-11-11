@@ -230,13 +230,13 @@ ul.colors li {
   border: 2px solid #fff;
 }
 
-.pulse-button {
+/*.pulse-button {
   font-family: 'Karla', sans-serif;
   font-size: 15pt;
   font-weight: bold;
   background: none;
   border: 1px solid #fff;
-  /*border-color: #fff;*/
+  border-color: #fff;
   color: #fff;
   transition: 0.3s all ease-in;
   margin-top: 20px;
@@ -257,4 +257,4 @@ ul.colors li {
 @-webkit-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(253, 114, 0, 0);}}
 @-moz-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(253, 114, 0, 0);}}
 @-ms-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(253, 114, 0, 0);}}
-@keyframes pulse {to {box-shadow: 0 0 0 20px rgba(253, 114, 0, 0);}}
+@keyframes pulse {to {box-shadow: 0 0 0 20px rgba(253, 114, 0, 0);}}*/
