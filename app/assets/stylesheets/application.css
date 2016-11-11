@@ -28,7 +28,7 @@ body {
 }
 
 a:link, a:visited, a:active {
-  color: #247D7F;
+  color: #FDA100;
   text-decoration: none;
   transition: 0.3s all ease-in;
 }
@@ -55,6 +55,14 @@ a:hover {
   margin: 40px 40px 25px;
 }
 
+.choose-genre {
+  text-align: center;
+}
+
+.center-last {
+
+}
+
 footer {
   width: 800px;
   padding: 40px;
@@ -68,8 +76,9 @@ footer {
 textarea {
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
-  font-size: 16px;
-  font-family: 'Karla', sans-serif;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
   /*border: 0px;*/
   color: black;
   right: 0;
@@ -142,17 +151,6 @@ input[type="submit"]:hover {
   color: #fff;
 }
 
-form .dropdown {
-  padding: 40px;
-  float: right;
-  text-align: center;
-}
-
-.player {
-  float: right;
-  margin-top: 50px;
-}
-
 .song {
   overflow: auto;
 }
@@ -166,6 +164,7 @@ form .dropdown {
 
 svg {
   padding-top: 20px;
+  margin: 0 auto;
 }
 
 .emotion-passage, .emotion-lyrics {
@@ -213,8 +212,14 @@ svg {
 }
 
 .module {
-  font-size: 20px;
+  font-size: 26px;
   text-align: center;
+}
+
+.color-legend {
+  text-align: center;
+  padding: 10px;
+  line-height: 1.5;
 }
 
 ul.colors li {

@@ -1,52 +1,54 @@
-<div class="song">
-  <div class="left">
-    <h1>Here's the song we chose for you</h1>
-    We hope you enjoy it.
+<div class="center">
+  <div class="song">
+      <h1>We hope you enjoy the song we chose for you.</h1>
+      <center>
+      <iframe src="https://embed.spotify.com/?uri=<%= @the_one_uri %>" width="500" height="80" frameborder="0" allowtransparency="true"></iframe>
+      </center>
   </div>
-  <div class="player">
-    <iframe src="https://embed.spotify.com/?uri=<%= @the_one_uri %>" width="500" height="80" frameborder="0" allowtransparency="true"></iframe>
-  </div>
-</div>
-<div class="results">
-  <h1>Insights from the Emotional Data</h1>
+  <div class="results">
+    <h1>Insights from the Emotional Data</h1>
 
-  <%= content_tag :div, class: "emotion-passage", data: {passage_emotion: @passage_emotion, strongest_emotion_from_passage: @strongest_emotion_from_passage
-  } do %>
-    <h2>From Your Passage</h2>
+    <%= content_tag :div, class: "emotion-passage", data: {passage_emotion: @passage_emotion, strongest_emotion_from_passage: @strongest_emotion_from_passage
+    } do %>
+      <h2>From Your Passage</h2>
+        Based on our calcuations, your text's strongest emotion detected was <%= @strongest_emotion_from_passage %>, which makes up <%= @strongest_emotion_passage_score %>% of the overall emotional scores.
 
-    <div class="left">
-      Based on our calcuations, your text's strongest emotion detected was <B><%= @strongest_emotion_from_passage %></b>, which makes up <B><%= @strongest_emotion_passage_score %>%</B> of the overall emotional scores.
-    </div>
-  <% end %>
-  <BR>
-  <%= content_tag :div, class: "emotion-lyrics", data: {lyrics_emotion: @lyrics_emotion, strongest_emotion_from_lyrics: @strongest_emotion_from_lyrics, strongest_emotion_lyrics_score: @strongest_emotion_lyrics_score
-  } do %>
-
-    <% if @lyrics_emotion %>
-    <h2>About the Song</h2>
-    The song we have chosen for you is solely based on the data above.
-      <div class="left">
-        By analyzing the emotional tones detected within your text, the overall scores have been categorized by 5 emotions: Joy, Sadness, Anger, Disgust, and Fear. The strongest emotion present from the chosen song is <B><%= @strongest_emotion_from_lyrics %></B> with a score of <B><%= @strongest_emotion_lyrics_score %>%</B>.
-      </div>
+        <h1>Text Emotion: <%= @strongest_emotion_from_passage %></h1>
+        <h1>Score: <%= @strongest_emotion_passage_score %>%</h1>
     <% end %>
-  <% end %>
+    <BR>
+    <%= content_tag :div, class: "emotion-lyrics", data: {lyrics_emotion: @lyrics_emotion, strongest_emotion_from_lyrics: @strongest_emotion_from_lyrics, strongest_emotion_lyrics_score: @strongest_emotion_lyrics_score
+    } do %>
 
-  <div class="color-legend module">
-    <h3>Color Legend</h3>
-    <ul class="colors">
-      <li id="joy">Joy</li>
-      <li id="sadness">Sadness</li>
-      <li id="anger">Anger</li>
-      <li id="disgust">Disgust</li>
-      <li id="fear">Fear</li>
-    </ul>
-  </div>
+      <% if @lyrics_emotion %>
+      <h2>About the Song</h2>
+      The song we have chosen for you is solely based on the data above.
+          By analyzing the emotional tones detected within your text, the overall scores have been categorized by 5 emotions: Joy, Sadness, Anger, Disgust, and Fear.
+          <p>
+          <h1>
+          Song Emotion: <%= @strongest_emotion_from_lyrics %></h1>
+          
+          <h1>Score: <%= @strongest_emotion_lyrics_score %>%</h1>
+      <% end %>
+    <% end %>
 </div>
 
-<center>
-  <%= link_to 'Back to Home', passages_path %>
-</center>
+    <div class="color-legend">
+      <h2>Color Legend</h2>
+      <ul class="colors">
+        <li id="joy">Joy</li>
+        <li id="sadness">Sadness</li>
+        <li id="anger">Anger</li>
+        <li id="disgust">Disgust</li>
+        <li id="fear">Fear</li>
+      </ul>
+    </div>
+  </div>
 
-<footer class="animated fadeInUp">
-    created by <a href="http://www.github.com/sayamkim" target="_blank">Sayam Kim</a>, <a href="http://www.github.com/kerianngannon" target="_blank">Keri Gannon</a>, <a href="http://www.github.com/jsgarrett1" target="_blank">Joel Garrett</a>, & <a href="http://www.github.com/omgannie" target="_blank">Annie Oh</a>
+  <center>
+    <%= link_to 'Back to Home', passages_path %>
+  </center>
+
+  <footer class="animated fadeInUp">
+      created by <a href="http://www.github.com/sayamkim" target="_blank">Sayam Kim</a>, <a href="http://www.github.com/kerianngannon" target="_blank">Keri Gannon</a>, <a href="http://www.github.com/jsgarrett1" target="_blank">Joel Garrett</a>, & <a href="http://www.github.com/omgannie" target="_blank">Annie Oh</a>
   </footer>
