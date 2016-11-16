@@ -1,28 +1,16 @@
-== README
+== Litmus
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app utilizes Watson's Tone Analyzer API to analyze the emotional tones within a passage of text in order to return a song (using Spotify's Web API) that best matches the emotional scores. In order to better understand the emotional scores, D3 is implemented within our code to show the emotional range as a gradient - with colors to match a specific emotion.
 
-Things you may want to cover:
+# Our Team
 
-* Ruby version
+* Sayam Kim (@sayamkim)
 
-* System dependencies
+* Keri Gannon (@kerianngannon)
 
-* Configuration
+* Annie Oh (@omgannie)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Joel Garrett (@jsgarrett1)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+You can visit http://litmus-player.herokuapp.com to check it out.
