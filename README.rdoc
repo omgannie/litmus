@@ -13,4 +13,4 @@ This app utilizes Watson's Tone Analyzer API to analyze the emotional tones with
 * Joel Garrett (@jsgarrett1)
 
 
-You can visit http://litmus-player.herokuapp.com to check it out.
+You can visit http://play-with-litmus.herokuapp.com to check it out.
