@@ -18,7 +18,6 @@ module EmotionConcern
       tones.each do |tone|
         emotions << {"name" => tone["tone_name"], "score" => tone["score"]}
       end
-      emotions
     end
 
     def format_watson_data(watson_emotion_tone)
