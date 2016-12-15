@@ -178,7 +178,7 @@ svg {
 
 .grid {
   background: white;
-  margin: 0 0 $pad 0;
+  margin: 0 auto;
 
   &:after {
     /* Or @extend clearfix */
@@ -190,7 +190,7 @@ svg {
 
 [class*='col-'] {
   float: left;
-  padding-right: $pad;
+  padding-right: 0;
   .grid &:last-of-type {
     padding-right: 0;
   }
@@ -256,7 +256,7 @@ ul.colors li {
   -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
   animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
 }
-.pulse-button:hover 
+.pulse-button:hover
 {
   -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
 }
