@@ -1,13 +1,13 @@
 // step 1: access emotions data from view
 function fetchPassageEmotionScores() {
-  var emotionData = $('.emotion-passage').data('passageEmotion');
+  var emotionData = $('#emotion-passage').data('passageEmotion');
 
   return emotionData;
 };
 
 // step 1.5: fetch strongest emotion of passage
 function fetchStrongestEmotionFromPassage() {
-  var strongest = $('.emotion-passage').data('strongestEmotionFromPassage');
+  var strongest = $('#emotion-passage').data('strongestEmotionFromPassage');
 
   return strongest;
 };

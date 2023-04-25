@@ -1,7 +1,7 @@
 function createPassageGradient(colorArray, shadesArray, percentages) {
 
   // Set up SVG container
-  var svg = d3.select('.emotion-passage')
+  var svg = document.getElementById('emotion-passage')
               .append('svg')
               .attr('width', 500)
               .attr('height', 100);

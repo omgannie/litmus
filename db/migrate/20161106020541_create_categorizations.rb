@@ -1,4 +1,4 @@
-class CreateCategorizations < ActiveRecord::Migration
+class CreateCategorizations < ActiveRecord::Migration[7.0]
   def change
     create_table :categorizations do |t|
       t.integer :song_id
