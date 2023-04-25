@@ -30,7 +30,7 @@ gem 'json'
 gem 'watson-tone-analyzer', '~> 0.0.0'
 gem 'musix_match'
 
-gem 'rspotify', '~> 1.18.0'
+gem 'rspotify'
 gem 'dotenv-rails'
 
 # D3.js is ... basically outdated now.
