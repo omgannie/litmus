@@ -8,7 +8,7 @@
   <div class="results">
     <h1>Insights from the Emotional Data</h1>
 
-    <%= content_tag :div, class: "emotion-passage", data: {passage_emotion: @passage_emotion, strongest_emotion_from_passage: @strongest_emotion_from_passage
+    <%= content_tag :div, id: "emotion-passage", data: {passage_emotion: @passage_emotion, strongest_emotion_from_passage: @strongest_emotion_from_passage
     } do %>
       <h2>From Your Passage</h2>
         Based on our calcuations, your text's strongest emotion detected was <%= @strongest_emotion_from_passage %>, which makes up <%= @strongest_emotion_passage_score %>% of the overall emotional scores.

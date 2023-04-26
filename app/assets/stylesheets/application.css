@@ -167,7 +167,7 @@ svg {
   margin: 0 auto;
 }
 
-.emotion-passage, .emotion-lyrics {
+#emotion-passage, .emotion-lyrics {
   overflow: auto;
 }
 

@@ -1,4 +1,4 @@
-class CreatePassages < ActiveRecord::Migration
+class CreatePassages < ActiveRecord::Migration[7.0]
   def change
     create_table :passages do |t|
       t.text :body
