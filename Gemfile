@@ -19,7 +19,7 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', group: :doc
 
 gem 'http'
 # gem 'rest-client', '~> 1.7'
@@ -48,18 +48,25 @@ gem 'chartjs-ror', '~> 3.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
-  gem 'rspec-rails'
   gem 'launchy'
   gem 'pry'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-core', git: 'https://github.com/rspec/rspec-core'
+  gem 'rspec-expectations', git: 'https://github.com/rspec/rspec-expectations'
+  gem 'rspec-mocks', git: 'https://github.com/rspec/rspec-mocks'
+  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails'
+  gem 'rspec-support', git: 'https://github.com/rspec/rspec-support'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 4.2'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'sprockets-rails'
 end

@@ -18,7 +18,7 @@ describe PassagesController do
   describe "POST #create" do
     context "when valid params are passed" do
       it "responds with status code 302" do
-        post(:create, { passage: { body: "anything"} } )
+        post(:create, { passage: { body: "anything " } })
         expect(response).to have_http_status 302
       end
 
